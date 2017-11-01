@@ -1,0 +1,8 @@
+C:\Users\kkps\Desktop\CDojo\netStack\FundamentalsI\bin\Debug\netcoreapp1.1\FundamentalsI.deps.json
+C:\Users\kkps\Desktop\CDojo\netStack\FundamentalsI\bin\Debug\netcoreapp1.1\FundamentalsI.runtimeconfig.json
+C:\Users\kkps\Desktop\CDojo\netStack\FundamentalsI\bin\Debug\netcoreapp1.1\FundamentalsI.runtimeconfig.dev.json
+C:\Users\kkps\Desktop\CDojo\netStack\FundamentalsI\bin\Debug\netcoreapp1.1\FundamentalsI.dll
+C:\Users\kkps\Desktop\CDojo\netStack\FundamentalsI\bin\Debug\netcoreapp1.1\FundamentalsI.pdb
+C:\Users\kkps\Desktop\CDojo\netStack\FundamentalsI\obj\Debug\netcoreapp1.1\FundamentalsI.AssemblyInfo.cs
+C:\Users\kkps\Desktop\CDojo\netStack\FundamentalsI\obj\Debug\netcoreapp1.1\FundamentalsI.dll
+C:\Users\kkps\Desktop\CDojo\netStack\FundamentalsI\obj\Debug\netcoreapp1.1\FundamentalsI.pdb

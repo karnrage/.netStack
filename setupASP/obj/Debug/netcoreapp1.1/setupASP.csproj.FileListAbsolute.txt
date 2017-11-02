@@ -1,0 +1,8 @@
+C:\Users\kkps\Desktop\CDojo\netStack\setupASP\bin\Debug\netcoreapp1.1\setupASP.deps.json
+C:\Users\kkps\Desktop\CDojo\netStack\setupASP\bin\Debug\netcoreapp1.1\setupASP.runtimeconfig.json
+C:\Users\kkps\Desktop\CDojo\netStack\setupASP\bin\Debug\netcoreapp1.1\setupASP.runtimeconfig.dev.json
+C:\Users\kkps\Desktop\CDojo\netStack\setupASP\bin\Debug\netcoreapp1.1\setupASP.dll
+C:\Users\kkps\Desktop\CDojo\netStack\setupASP\bin\Debug\netcoreapp1.1\setupASP.pdb
+C:\Users\kkps\Desktop\CDojo\netStack\setupASP\obj\Debug\netcoreapp1.1\setupASP.AssemblyInfo.cs
+C:\Users\kkps\Desktop\CDojo\netStack\setupASP\obj\Debug\netcoreapp1.1\setupASP.dll
+C:\Users\kkps\Desktop\CDojo\netStack\setupASP\obj\Debug\netcoreapp1.1\setupASP.pdb

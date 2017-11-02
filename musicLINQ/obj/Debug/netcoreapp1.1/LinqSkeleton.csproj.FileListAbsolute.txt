@@ -1,0 +1,8 @@
+C:\Users\kkps\Desktop\CDojo\netStack\musicLINQ\bin\Debug\netcoreapp1.1\LinqSkeleton.deps.json
+C:\Users\kkps\Desktop\CDojo\netStack\musicLINQ\bin\Debug\netcoreapp1.1\LinqSkeleton.runtimeconfig.json
+C:\Users\kkps\Desktop\CDojo\netStack\musicLINQ\bin\Debug\netcoreapp1.1\LinqSkeleton.runtimeconfig.dev.json
+C:\Users\kkps\Desktop\CDojo\netStack\musicLINQ\bin\Debug\netcoreapp1.1\LinqSkeleton.dll
+C:\Users\kkps\Desktop\CDojo\netStack\musicLINQ\bin\Debug\netcoreapp1.1\LinqSkeleton.pdb
+C:\Users\kkps\Desktop\CDojo\netStack\musicLINQ\obj\Debug\netcoreapp1.1\LinqSkeleton.AssemblyInfo.cs
+C:\Users\kkps\Desktop\CDojo\netStack\musicLINQ\obj\Debug\netcoreapp1.1\LinqSkeleton.dll
+C:\Users\kkps\Desktop\CDojo\netStack\musicLINQ\obj\Debug\netcoreapp1.1\LinqSkeleton.pdb

@@ -1,0 +1,38 @@
+@{
+    ViewData["title"] = "Home Page";
+
+}
+
+  <div class="Nav">
+       <h1>Create User</h1>
+       <h3 class={color:red}>Register</h3> 
+        
+        <a href="index"><p>Home</p></a>    
+    </div>
+
+    <!-- space for errors -->
+       @{
+            foreach(var field in ViewBag.ModelFields)
+            {
+                if (field.Errors.Count > 0)
+                {
+                    <li>@field.Errors[0].ErrorMessage</li>
+                }
+            }
+        }
+     
+
+
+
+<div class="mold">
+<form id="Move">
+
+    <p>First Name:  <input type="text" name="first_name"></p>
+    <p>Last Name:    <input type="text" name="last_name"></p>
+    <p>Email: <input type="text" name="email"></p>
+    <p>Age:<input type="number" name="age"></p>
+    <p>Password:   <input type="number" name="password"></p>
+    <input type="submit" value="Submit" id="button">
+
+</form>
+</div>

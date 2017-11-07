@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form Validation</title>
+</head>
+<body>
+
+    <form method="POST" action="formProcess">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+        <label for="validationDefault01">First name</label>
+        <input name="firstName" type="text" class="form-control" id="validationDefault01" placeholder="First name"  >
+        </div>
+        <div class="col-md-6 mb-3">
+        <label for="validationDefault02">Last name</label>
+        <input name="lastName" type="text" class="form-control" id="validationDefault02" placeholder="Last name"  >
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+        <label for="validationDefault03">Age</label>
+        <input name="age" type="text" class="form-control" id="validationDefault03" placeholder="Age" >
+        <div class="invalid-feedback">
+            <!-- Please provide a valid age.
+        </div> -->
+        </div>
+        <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Email</label>
+        <input name="email" type="text" class="form-control" id="validationDefault04" placeholder="Email" >
+        <div class="invalid-feedback">
+            <!-- Please provide a valid email. -->
+        </div>
+        </div>
+        <div class="col-md-3 mb-3">
+        <label for="validationDefault05">Password</label>
+        <input name="password" type="text" class="form-control" id="validationDefault05" placeholder="Password" >
+        <div class="invalid-feedback">        
+        </div>
+        
+        </div>
+        <div class="col-md-3 mb-3">
+        <label for="validationDefault05">Password Match</label>
+        <input type="text" class="form-control" id="validationDefault06" placeholder="Password Confirm" >
+        <div class="invalid-feedback">
+            Please provide a matching Password.
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+
+    <div>
+        <div class="col-md-3 mb-3">
+            @if(ViewBag.error != null)
+            {
+                @foreach(var err in @ViewBag.error)
+                {
+                    <p>@err</p>
+                }
+            }
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+@using RESTauranter.Models;
+
+<h1>Reviews</h1>
+
+@{
+    foreach(thisUserReview item in ViewBag.theReviews)
+    //CASE FUCKING SENSITIVE ABOVE
+    {
+        <div class="row">
+            <tr>
+                <td>
+                    @item.reviewer_name
+                </td>
+                <td>
+                    @item.restaurant_name
+                </td>
+                <td>
+                    @item.review
+                </td>
+                <td>
+                    @item.stars
+                </td>
+                <td>
+                    @item.visit_date
+                </td>
+            </tr>
+        </div>
+    }
+}

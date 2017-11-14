@@ -1,0 +1,90 @@
+
+@model bankAccounts.Models.LoginRegViewModel 
+
+<!-- @{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Default Blank Page~</h1>
+<p>Get to adding stuff</p> -->
+
+
+<h1>Login</h1>
+
+<div id="login">
+   
+    <!-- <div>
+        @if(ViewBag.errors != null)
+            {
+                @foreach(var err in @ViewBag.errors)
+                {
+                    <p >@err</p>
+                }
+            }
+    </div> -->
+    <form action="login" method="post">
+        <label>Email: </label>
+        <input type="text" name="Email"><br><br>
+        <label> Password: </label>
+        <input type="password" name="Password"><br><br>
+
+    <button type="submit">Log In</button>
+    </form>
+</div>
+
+
+
+<h1>Registration</h1>
+<!-- need to edit below, straight c/p from dojo diner -->
+<!-- asp-controller = name of controller. FE HomeController is home -->
+<form asp-controller="Home" asp-action="register" method="post">
+<span>
+<!-- if model class is already imported up top, when setting asp, do not call on it again -->
+    <label asp-for="registerVM.firstName"></label>
+    <input asp-for="registerVM.firstName"/>
+
+    <label asp-for="registerVM.lastName"></label>
+    <input asp-for="registerVM.lastName"/>
+
+    <label asp-for="registerVM.email"></label>
+    <input asp-for="registerVM.email"/>
+
+
+    <label asp-for="registerVM.password"></label>
+    <input asp-for="registerVM.password"/>
+</span>
+    <button type="submit">Create New User</button>
+</form>
+
+<hr>
+
+        
+            
+              <!-- do not leave asp-for in forms if unused 
+                 
+    <form action="register" method="post" class="form-horizontal">
+        <div>
+            <label>Your First Name</label>
+            <input  asp-for= "first_name"  type="text" class="form-control" >
+        </div>
+        <div>
+            <label>Your Last Name</label>
+            <input  asp-for="last_name" type="text" class="form-control" >
+        </div>
+        <div>
+            <label>Your email</label>
+            <input  asp-for="email" type="text" class="form-control" >
+        </div>
+        <div>
+            <label>Password</label>
+            <input asp-for="password" type="text" class="form-control" >
+        </div>
+        <div>
+            <label>Confirm your Password</label>
+            <input  name="password_confirm" type="text" class="form-control" >
+        </div> -->
+        
+        <!-- name takes priority asp-for, type takes priority over what asp-for self assign is for. if type is empty  -->
+        
+        
+    <!-- <button type="submit" class="btn btn-default">Send Registration</button>
+    </form>  -->

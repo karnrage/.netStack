@@ -9523,16 +9523,16 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\kkps\\Desktop\\CDojo\\netStack\\setupASP\\setupASP.csproj",
+      "projectUniqueName": "C:\\Users\\kkps\\Desktop\\CDojo\\netStack\\setupASP\\setupASP.csproj",
       "projectName": "setupASP",
-      "projectPath": "c:\\Users\\kkps\\Desktop\\CDojo\\netStack\\setupASP\\setupASP.csproj",
-      "outputPath": "c:\\Users\\kkps\\Desktop\\CDojo\\netStack\\setupASP\\obj\\",
+      "projectPath": "C:\\Users\\kkps\\Desktop\\CDojo\\netStack\\setupASP\\setupASP.csproj",
+      "outputPath": "C:\\Users\\kkps\\Desktop\\CDojo\\netStack\\setupASP\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
       "files": {
-        "lib/netcoreapp1.1/setupASP.dll": "c:\\Users\\kkps\\Desktop\\CDojo\\netStack\\setupASP\\bin\\placeholder\\netcoreapp1.1\\setupASP.dll"
+        "lib/netcoreapp1.1/setupASP.dll": "C:\\Users\\kkps\\Desktop\\CDojo\\netStack\\setupASP\\bin\\placeholder\\netcoreapp1.1\\setupASP.dll"
       },
       "frameworks": {
         "netcoreapp1.1": {

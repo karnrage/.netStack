@@ -1,0 +1,28 @@
+@using weddingPlanner.Models
+@model wedding
+
+<h1>Plan your Wedding</h1>
+
+
+
+<form asp-controller="Home" asp-action="CreateWed" method="post">
+<span>
+<!-- if model class is already imported up top, when setting asp, do not call on it again -->
+<!-- asp-for only does validations, need name to take in the parameter -->
+    <label asp-for="@Model.husband"></label>
+    <input  asp-for="@Model.husband"/>
+
+    <label asp-for="@Model.wife"></label>
+    <input  asp-for="@Model.wife"/>
+
+    <label asp-for="@Model.address"></label>
+    <input asp-for="@Model.address"/>
+
+
+    <label asp-for="@Model.wedDate"></label>
+    <input asp-for="@Model.wedDate"/>
+
+   
+</span>
+    <button type="submit">Create New User</button>
+</form>

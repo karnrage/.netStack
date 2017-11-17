@@ -1,5 +1,6 @@
 
-@model bankAccounts.Models.LoginRegViewModel 
+@using bankAccounts.Models
+@model LoginRegViewModel 
 
 <!-- @{
     ViewData["Title"] = "Home Page";
@@ -7,50 +8,60 @@
 <h1>Default Blank Page~</h1>
 <p>Get to adding stuff</p> -->
 
+<div asp-validation-summary="All"></div>
 
 <h1>Login</h1>
 
-<div id="login">
-   
-    <!-- <div>
-        @if(ViewBag.errors != null)
-            {
-                @foreach(var err in @ViewBag.errors)
-                {
-                    <p >@err</p>
-                }
-            }
-    </div> -->
-    <form action="login" method="post">
-        <label>Email: </label>
-        <input type="text" name="Email"><br><br>
-        <label> Password: </label>
-        <input type="password" name="Password"><br><br>
+<!-- asp-action ties form to the functon/route -->
+<form asp-controller="Home" asp-action="login" method="post">
+<span>
+<!-- if model class is already imported up top, when setting asp, do not call on it again -->
+<!-- asp-for only does validations, need name to take in the parameter -->
 
-    <button type="submit">Log In</button>
-    </form>
-</div>
+
+    <label asp-for="@Model.loginVM.email"></label>
+    <input asp-for="@Model.loginVM.email"/>
+
+
+    <label asp-for="@Model.loginVM.password"></label>
+    <input asp-for="@Model.loginVM.password"/>
+
+
+</span>
+    <button type="submit">Login User</button>
+</form>
+
+<hr>
+
+
+  
 
 
 
 <h1>Registration</h1>
-<!-- need to edit below, straight c/p from dojo diner -->
+
 <!-- asp-controller = name of controller. FE HomeController is home -->
+<!-- asp-action ties form to the functon/route -->
 <form asp-controller="Home" asp-action="register" method="post">
 <span>
 <!-- if model class is already imported up top, when setting asp, do not call on it again -->
-    <label asp-for="registerVM.firstName"></label>
-    <input asp-for="registerVM.firstName"/>
+<!-- asp-for only does validations, need name to take in the parameter -->
+    <label asp-for="@Model.registerVM.firstName"></label>
+    <input  asp-for="@Model.registerVM.firstName"/>
 
-    <label asp-for="registerVM.lastName"></label>
-    <input asp-for="registerVM.lastName"/>
+    <label asp-for="@Model.registerVM.lastName"></label>
+    <input  asp-for="@Model.registerVM.lastName"/>
 
-    <label asp-for="registerVM.email"></label>
-    <input asp-for="registerVM.email"/>
+    <label asp-for="@Model.registerVM.email"></label>
+    <input asp-for="@Model.registerVM.email"/>
 
 
-    <label asp-for="registerVM.password"></label>
-    <input asp-for="registerVM.password"/>
+    <label asp-for="@Model.registerVM.password"></label>
+    <input asp-for="@Model.registerVM.password"/>
+
+   
+    <label asp-for="@Model.registerVM.confirmRegPassword"></label>
+    <input asp-for="@Model.registerVM.confirmRegPassword"/>
 </span>
     <button type="submit">Create New User</button>
 </form>

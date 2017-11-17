@@ -1,0 +1,8 @@
+C:\Users\kkps\Desktop\CDojo\netStack\ASPNETdemo\bin\Debug\netcoreapp1.1\ASPNETdemo.deps.json
+C:\Users\kkps\Desktop\CDojo\netStack\ASPNETdemo\bin\Debug\netcoreapp1.1\ASPNETdemo.runtimeconfig.json
+C:\Users\kkps\Desktop\CDojo\netStack\ASPNETdemo\bin\Debug\netcoreapp1.1\ASPNETdemo.runtimeconfig.dev.json
+C:\Users\kkps\Desktop\CDojo\netStack\ASPNETdemo\bin\Debug\netcoreapp1.1\ASPNETdemo.dll
+C:\Users\kkps\Desktop\CDojo\netStack\ASPNETdemo\bin\Debug\netcoreapp1.1\ASPNETdemo.pdb
+C:\Users\kkps\Desktop\CDojo\netStack\ASPNETdemo\obj\Debug\netcoreapp1.1\ASPNETdemo.AssemblyInfo.cs
+C:\Users\kkps\Desktop\CDojo\netStack\ASPNETdemo\obj\Debug\netcoreapp1.1\ASPNETdemo.dll
+C:\Users\kkps\Desktop\CDojo\netStack\ASPNETdemo\obj\Debug\netcoreapp1.1\ASPNETdemo.pdb

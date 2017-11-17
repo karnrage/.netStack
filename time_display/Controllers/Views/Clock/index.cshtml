@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Hello!</title>
+    </head>
+    <body>
+        <h1>ASP.NET Mvc Clock!</h1>
+          @{ DateTime CurrentTime = DateTime.Now; }  
+        <div>
+            <p>The current time and date:</p> 
+        </div>
+        <div> 
+            <p>Date: @CurrentTime.ToString("MMM d, yyy") </p>
+            <p>Time: @CurrentTime.ToString("h:mm tt") </p>
+        </div>
+    </body>
+</html>

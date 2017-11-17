@@ -9,28 +9,33 @@
         //need to use three objects, one of what was entered, a reg and login depending on usage
         public class user
     	{	
-		[Key]
-        	public int id { get; set; }
-
-		[Required]
-        [MinLength(3)]
+		    // [Key]
+            //if you don't call it by the class name and ID, you willneed to designate
+            // it that it is the key
+        	public int userid { get; set; }
+        //below in wrapper you can declare the entry form requirements. here only just variables
+		// [Required]
+        //
+        // [MinLength(3)]
         	public string firstName { get; set; }
 
-        [Required]
-        [MinLength(3)]
+        // [Required]
+        // [MinLength(3)]
         	public string lastName { get; set; }
 
-		[Required]
-        [EmailAddress]
+		// [Required]
+        
         	public string email { get; set; }
 
-		[Required]
-        [MinLength(8)]
-        [DataType(DataType.Password)]
+		// [Required]
+        // [MinLength(8)]
+        // [DataType(DataType.Password)]
         	public string password { get; set; }
 
+            public int balance { get; set; }
+
 		
-        [Required]
+        // [Required]
         public DateTime createTime { get; set; }
 
         //first <here name has to be the same as other object> next (after <>) can be whatever I want
@@ -51,6 +56,8 @@
         [Required]
         public string email {get; set;}
         [Required]
+        [MinLength(8)]
+        [DataType(DataType.Password)]
         public string password {get; set;}
     }
 
@@ -65,8 +72,9 @@
         public string email {get; set;}
         [Required]
         public string password {get; set;}
-        // [Required]
-        // public string confirmRegPassword {get; set;}
+        [Required]
+        [Compare("password")]
+        public string confirmRegPassword {get; set;}
     }
 
     //This is a WRAPPER!
@@ -75,4 +83,4 @@
         public LoginViewModel loginVM {get; set;}
         public RegisterViewModel registerVM {get; set;}
     }
-    }
+ }

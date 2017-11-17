@@ -22,7 +22,7 @@ namespace RESTauranter.Models
 		[Range(1,5)]
         public int stars { get; set; }
         [Required]
-        public DateTime date_created { get; set; }
+        public DateTime created_at { get; set; }
         // [Required]
         //     public DateTime date_modified { get; set; }
 

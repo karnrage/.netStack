@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    
+    <!-- <link rel="stylesheet" type="text/css" href="/css/style.css"/> -->
+    
+    <title>Dojodachi</title>
+</head>
+<body>
+    <div class="Nav">
+            <h1>Dojodochi</h1>
+            <a href="index"><p>Home</p></a>
+
+    </div>
+
+    <div class="Wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="White">
+            <h3 class="inline">Fullness: 
+                <span id="Stat">@ViewBag.fullness</span>
+            </h3>
+            <h3 class="inline">Happiness:
+                <span id="Stat">@ViewBag.happiness</span>
+            </h3>
+            <h3 class="inline">Meals:
+                <span id="Stat">@ViewBag.meals</span>
+            </h3>
+            <h3 class="inline">Energy:
+                <span id='Stat'>@ViewBag.energy</span>
+            </h3>
+            </div>
+
+            <div class="row petbox">
+    <BR>
+       <div class="img_wrap">
+            @if(ViewBag.alive == "alive" && ViewBag.happiness >= 15){
+              <img src="~/css/tenor.gif" alt="me" width="100%">
+              }
+             @if(ViewBag.alive == "dead"){
+              <img src="~/css/dead.gif" alt="me" width="100%">
+              }
+
+             
+             @if(ViewBag.happiness < 15 && ViewBag.alive == "alive"){
+              <img src="~/css/nothappy.gif" alt="me" width="100%">
+              }
+        </div>
+        <div class="White">
+    <BR>
+     <span>@ViewBag.message</span>
+    <BR>
+    <span>@ViewBag.emotion !</span>
+    </div>
+        
+                <p id="alert"></p>
+            </div>
+            <div class="row options">
+                @if(ViewBag.alive == "alive"){
+                <a href="/feed"><button class="inline" method="POST" >Feed</button></a>
+                <a href="/play"><button class="inline" method="POST" >Play</button></a>
+                <a href="/work"><button class="inline" method="POST" >Work</button></a>
+                <a href="/sleep"><button class="inline" method="POST">Sleep</button></a>
+                }
+                @if(ViewBag.alive == "dead"){
+                <a href="/clear"><button class="inline" method="POST" >Restart</button></a>
+
+                }
+   
+            </div>
+        </div>
+    </div>
+</div>
+
+success page
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+@using weddingPlanner.Models;
+
+<h1>got inside</h1>
+<h1>Welcome To The Wedding Planner</h1>
+
+@{
+    foreach(thisUserReview item in ViewBag.theReviews)
+    //CASE FUCKING SENSITIVE ABOVE
+    {
+        <div class="row">
+            <tr>
+                <td>
+                    @item.reviewer_name
+                </td>
+                <td>
+                    @item.restaurant_name
+                </td>
+                <td>
+                    @item.review
+                </td>
+                <td>
+                    @item.stars
+                </td>
+                <td>
+                    @item.visit_date
+                </td>
+            </tr>
+        </div>
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+<!-- <form asp-controller="Home" asp-action="newWedding" method="get">
+    <button type="submit">New Wedding</button>
+</form> -->
+
+<button><a href="/wedPlanner">New Wedding</button>

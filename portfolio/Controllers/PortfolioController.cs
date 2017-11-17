@@ -25,5 +25,13 @@ namespace portfolio.Controllers
         {
             return View("Contact");
         }
+
+        [HttpGet]
+        [Route("survey")]
+        public IActionResult survey()
+        {
+            return View("survey");
+        }
+
     }
 }

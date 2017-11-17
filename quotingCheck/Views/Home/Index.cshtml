@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Default Blank Page~</h1>
+<p>Get to adding stuff</p>
+
+
+<h1>Welcome to QuotingDojo</h1>
+
+
+
+        
+            
+              <!--do not leave asp-for in forms if unused  -->
+                 
+    <form action="/quotes" method="post" class="form-horizontal">
+        <div >
+            <label for="exampleInputName2">Your Name</label>
+            <input  name="Name" type="text" class="form-control" id="exampleInputName2" placeholder="Your Name">
+        </div>
+        <div >
+            <label for="exampleInputEmail2">Your Quote</label>
+            <textarea  name="Quote" type="text" class="form-control" id="exampleInputEmail2" placeholder="Quote">
+            </textarea>
+        </div>
+        <!-- name takes priority asp-for, type takes priority over what asp-for self assign is for. if type is empty  -->
+        
+        
+    <button type="submit" class="btn btn-default">Send Quote</button>
+    </form> 
+    
+
+        
+   
+

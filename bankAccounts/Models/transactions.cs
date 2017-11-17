@@ -4,10 +4,10 @@
 	namespace bankAccounts.Models
     //variable name must be exact match to table column
 	{
-        public class transactions
+        public class transactions : BaseEntity
     	{	
         [Key]
-        public int id { get; set; }
+        public int transactionsid { get; set; }
 
 		
 		[Required]
@@ -16,6 +16,7 @@
 				
         [Required]
         public DateTime createTime { get; set; }
+        public int usersid {get; set;}
 
         // public List<user> transactions { get; set; }
 

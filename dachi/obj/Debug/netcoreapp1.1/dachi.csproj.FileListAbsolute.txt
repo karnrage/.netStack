@@ -1,0 +1,9 @@
+C:\Users\kkps\Desktop\CDojo\netStack\dachi\bin\Debug\netcoreapp1.1\dachi.deps.json
+C:\Users\kkps\Desktop\CDojo\netStack\dachi\bin\Debug\netcoreapp1.1\dachi.runtimeconfig.json
+C:\Users\kkps\Desktop\CDojo\netStack\dachi\bin\Debug\netcoreapp1.1\dachi.runtimeconfig.dev.json
+C:\Users\kkps\Desktop\CDojo\netStack\dachi\bin\Debug\netcoreapp1.1\dachi.dll
+C:\Users\kkps\Desktop\CDojo\netStack\dachi\bin\Debug\netcoreapp1.1\dachi.pdb
+C:\Users\kkps\Desktop\CDojo\netStack\dachi\obj\Debug\netcoreapp1.1\dachi.AssemblyInfo.cs
+C:\Users\kkps\Desktop\CDojo\netStack\dachi\obj\Debug\netcoreapp1.1\dachi.dll
+C:\Users\kkps\Desktop\CDojo\netStack\dachi\obj\Debug\netcoreapp1.1\dachi.pdb
+C:\Users\kkps\Desktop\CDojo\netStack\dachi\obj\Debug\netcoreapp1.1\dachi.csproj.CoreCompileInputs.cache

@@ -1,0 +1,37 @@
+
+@model bankAccounts.Models.transactions 
+<!-- do not call "transactions" above AND below, will break -->
+
+<table>
+  <tr>
+    <th>Amount</th>
+    <th>Date</th>
+    
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Francisco Chang</td>
+    
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+
+  </tr>
+  </table>
+
+
+<!-- asp-action needs to match up with the route name -->
+<form asp-controller="Home" asp-action="changes" method="post">
+<span>
+<!-- if model class is already imported up top, when setting asp, do not call on it again -->
+<!-- NOT RIGHT ->> asp-for only does validations, need name to take in the parameter -->
+    <label asp-for="@Model.transaction"></label>
+    <input asp-for="@Model.transaction"/>
+
+    
+
+</span>
+    <button type="submit">Complete Transaction</button>
+</form>
+

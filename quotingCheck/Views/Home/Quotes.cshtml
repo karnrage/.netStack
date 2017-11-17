@@ -1,0 +1,26 @@
+<h1>Here are the database of quotes</h1>
+
+<body>
+    @{
+        <!-- var StringList = new List<string>{
+                                "one",
+                                "two",
+                                "three",
+                                "four"
+                            }; -->
+        //need
+        foreach(string quote in @ViewBag.allQuotes)
+        {
+            // We can render HTML from within C# code!
+            <div>
+                <br>
+                <h6>@quote["quote"]</h6>
+                <p>@quote["name"]</p>
+                <p> @quote["created_at"]</p>
+                <br>
+            </div>
+        }
+
+        
+    }
+</body>

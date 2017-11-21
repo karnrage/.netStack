@@ -11,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
             // public DbSet<user> users { get; set; }
 
             // NEED to create table name here
+
+			//<model/object> class/table
 			public DbSet<user> users { get; set; }
 
 			//add tables. 

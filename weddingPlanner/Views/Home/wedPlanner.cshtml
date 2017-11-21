@@ -1,28 +1,40 @@
 @using weddingPlanner.Models
 @model wedding
 
+<a href="/success"><button>Dashboard</button></a>
+<a href="/logout"><button>Logout</button></a>
+
 <h1>Plan your Wedding</h1>
+ 
+<p>@TempData["DateError"]</p>
+<div asp-validation-summary="All"></div>
 
 
 
-<form asp-controller="Home" asp-action="CreateWed" method="post">
+<form asp-controller="Home" asp-action="CreateWed" method="POST">
 <span>
 <!-- if model class is already imported up top, when setting asp, do not call on it again -->
 <!-- asp-for only does validations, need name to take in the parameter -->
     <label asp-for="@Model.husband"></label>
+    <!-- if add [Display(Name = "Husband")] to model then its not needed in html-->
+    <!-- <small><span class="text-danger" asp-validation-for="husband"></span></small> -->
     <input  asp-for="@Model.husband"/>
 
     <label asp-for="@Model.wife"></label>
+    <!-- <small><span class="text-danger" asp-validation-for="wife"></span></small> -->
     <input  asp-for="@Model.wife"/>
 
     <label asp-for="@Model.address"></label>
+    <!-- <small><span class="text-danger" asp-validation-for="address"></span></small> -->
     <input asp-for="@Model.address"/>
 
 
     <label asp-for="@Model.wedDate"></label>
+    <small class="text-danger">@TempData["DateError"]</small>
+    <!-- <small><span class="text-danger" asp-validation-for="wedDate"></span></small> -->
     <input asp-for="@Model.wedDate"/>
 
    
 </span>
-    <button type="submit">Create New User</button>
+    <button type="submit">Schedule new Wedding</button>
 </form>

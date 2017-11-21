@@ -8,7 +8,7 @@
 //variable name must be exact match to table column
 	{
         //need to use three objects, one of what was entered, a reg and login depending on usage
-        public class guest
+        public class guest : BaseEntity
     	{	
 		    [Key]
             //if you don't call it by the class name and ID, you willneed to designate

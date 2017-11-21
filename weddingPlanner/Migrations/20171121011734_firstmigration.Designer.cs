@@ -8,8 +8,8 @@ using weddingPlanner.Models;
 namespace weddingPlanner.Migrations
 {
     [DbContext(typeof(weddingPlannerContext))]
-    [Migration("20171117010520_thirdMigration")]
-    partial class thirdMigration
+    [Migration("20171121011734_firstmigration")]
+    partial class firstmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,7 +32,7 @@ namespace weddingPlanner.Migrations
 
                     b.HasIndex("wedID");
 
-                    b.ToTable("guest");
+                    b.ToTable("guests");
                 });
 
             modelBuilder.Entity("weddingPlanner.Models.user", b =>
@@ -60,16 +60,15 @@ namespace weddingPlanner.Migrations
                     b.Property<int>("wedID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("address");
+                    b.Property<string>("address")
+                        .IsRequired();
 
                     b.Property<DateTime>("createAt");
-
-                    b.Property<int>("createdBy");
 
                     b.Property<string>("husband")
                         .IsRequired();
 
-                    b.Property<int?>("userID");
+                    b.Property<int>("userId");
 
                     b.Property<DateTime>("wedDate");
 
@@ -78,9 +77,9 @@ namespace weddingPlanner.Migrations
 
                     b.HasKey("wedID");
 
-                    b.HasIndex("userID");
+                    b.HasIndex("userId");
 
-                    b.ToTable("wedding");
+                    b.ToTable("weddings");
                 });
 
             modelBuilder.Entity("weddingPlanner.Models.guest", b =>
@@ -91,16 +90,17 @@ namespace weddingPlanner.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("weddingPlanner.Models.wedding", "wed")
-                        .WithMany()
+                        .WithMany("guests")
                         .HasForeignKey("wedID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("weddingPlanner.Models.wedding", b =>
                 {
-                    b.HasOne("weddingPlanner.Models.user")
+                    b.HasOne("weddingPlanner.Models.user", "user")
                         .WithMany("weddings")
-                        .HasForeignKey("userID");
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

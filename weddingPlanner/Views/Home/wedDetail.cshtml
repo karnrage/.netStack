@@ -17,6 +17,20 @@
     <button type="submit">Logout User</button>
 </form> --> 
 
+<!-- if guests and time are links.....then a tag wasn't closed -->
+<a href="/success"><button>Dashboard</button></a>
+<a href="/logout"><button>Logout</button></a>
 
-<button><a href="/success">Dashboard</button>
-<button><a href="/logout">Logout</button>
+<h1>@ViewBag.Wedding.husband & @ViewBag.Wedding.wife<h1>
+<h3>@ViewBag.Wedding.wedDate</h3>
+
+<h3>Guests:</h3>
+
+@if(ViewBag.Wedding.guests.Count == 0)
+{
+    <p>No Guests for your wedding at this moment</p>
+}
+@foreach (var guest in @ViewBag.Wedding.guests)
+{
+    <p>@guest.user.firstName @guest.user.lastName</p>
+}

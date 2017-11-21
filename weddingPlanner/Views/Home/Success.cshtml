@@ -1,41 +1,78 @@
 @using weddingPlanner.Models;
 
-<h1>got inside</h1>
+<!-- maybe below needed -->
+@using System;
+@using System.Linq;
+
+<a href="/success"><button>Dashboard</button></a>
+<a href="/logout"><button>Logout</button></a>
+
+
 <h1>Welcome To The Wedding Planner</h1>
 
-@{
-    foreach(thisUserReview item in ViewBag.theReviews)
-    //CASE FUCKING SENSITIVE ABOVE
-    {
-        <div class="row">
+
+<table>
+    <tr>
+        <th>Wedding</th>
+        <th>Date</th>
+        <th>Guests</th>
+        <th>Action</th>
+    </tr>
+
+    <!-- In table, with loop, add each wedding -->
+    @foreach(var wedding in @ViewBag.allWeddings)
+        //CASE SENSITIVE ABOVE
+        {
+            
             <tr>
                 <td>
-                    @item.reviewer_name
+                    <!-- //currently whole object being taken in
+                    //here you can grab, from the object, any of the columns'(here id)
+                    //when sent to the route, the route will have 
+                    //the id to select the correct -->
+                    <a href="/wedDetail/@wedding.wedID">@wedding.husband & @wedding.wife</a>
                 </td>
+                <td>@wedding.wedDate</td>
+
+                <td>@wedding.guests.Count</td>
                 <td>
-                    @item.restaurant_name
+                    <!-- System.Console.WriteLine(ViewBag.helloUser.userID);
+                    System.Console.WriteLine(wedding.userId); -->
+                    @if(ViewBag.helloUser.userID == wedding.userId)
+                        {
+                            <td><a href="delete/@wedding.wedID">Delete</a></td>
+                        }
+                    else
+                        {
+                        <!-- do not comment inside of RAZOR! -->
+                        <!-- vis code may know html is over after closing brace since html is one line. maybe -->
+                            bool attending = false;
+                            foreach(var guest in wedding.guests)
+                            {
+                                if(guest.userID == ViewBag.helloUser.userID)
+                                {
+                                    attending = true;
+                                }
+                            }
+                            if(!attending)
+                            {
+                                <td><a href="/rsvp/@wedding.wedID">RSVP</a></td>
+
+                            }
+                            else
+                            {
+                                <td><a href="/decline/@wedding.wedID">Un-RSVP</a></td>
+                            }
+
+                        }
+                
                 </td>
-                <td>
-                    @item.review
-                </td>
-                <td>
-                    @item.stars
-                </td>
-                <td>
-                    @item.visit_date
-                </td>
+                <!-- <td>
+                    
+                </td> -->
             </tr>
-        </div>
-    }
-
-
-}
-
-
-
-
-
-
+            
+        }
 
 
 
@@ -43,4 +80,4 @@
     <button type="submit">New Wedding</button>
 </form> -->
 
-<button><a href="/wedPlanner">New Wedding</button>
+<a href="wedPlanner"><button>New Wedding</button></a>

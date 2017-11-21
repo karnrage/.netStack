@@ -5,47 +5,53 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace weddingPlanner.Migrations
 {
-    public partial class thirdMigration : Migration
+    public partial class firstmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "userid",
-                table: "users",
-                newName: "userID");
-
-            migrationBuilder.RenameColumn(
-                name: "createTime",
-                table: "users",
-                newName: "createAt");
+            migrationBuilder.CreateTable(
+                name: "users",
+                columns: table => new
+                {
+                    userID = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    createAt = table.Column<DateTime>(nullable: false),
+                    email = table.Column<string>(nullable: true),
+                    firstName = table.Column<string>(nullable: true),
+                    lastName = table.Column<string>(nullable: true),
+                    password = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_users", x => x.userID);
+                });
 
             migrationBuilder.CreateTable(
-                name: "wedding",
+                name: "weddings",
                 columns: table => new
                 {
                     wedID = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    address = table.Column<string>(nullable: true),
+                    address = table.Column<string>(nullable: false),
                     createAt = table.Column<DateTime>(nullable: false),
-                    createdBy = table.Column<int>(nullable: false),
                     husband = table.Column<string>(nullable: false),
-                    userID = table.Column<int>(nullable: true),
+                    userId = table.Column<int>(nullable: false),
                     wedDate = table.Column<DateTime>(nullable: false),
                     wife = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_wedding", x => x.wedID);
+                    table.PrimaryKey("PK_weddings", x => x.wedID);
                     table.ForeignKey(
-                        name: "FK_wedding_users_userID",
-                        column: x => x.userID,
+                        name: "FK_weddings_users_userId",
+                        column: x => x.userId,
                         principalTable: "users",
                         principalColumn: "userID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "guest",
+                name: "guests",
                 columns: table => new
                 {
                     guestId = table.Column<int>(nullable: false)
@@ -55,54 +61,47 @@ namespace weddingPlanner.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_guest", x => x.guestId);
+                    table.PrimaryKey("PK_guests", x => x.guestId);
                     table.ForeignKey(
-                        name: "FK_guest_users_userID",
+                        name: "FK_guests_users_userID",
                         column: x => x.userID,
                         principalTable: "users",
                         principalColumn: "userID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_guest_wedding_wedID",
+                        name: "FK_guests_weddings_wedID",
                         column: x => x.wedID,
-                        principalTable: "wedding",
+                        principalTable: "weddings",
                         principalColumn: "wedID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_guest_userID",
-                table: "guest",
+                name: "IX_guests_userID",
+                table: "guests",
                 column: "userID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_guest_wedID",
-                table: "guest",
+                name: "IX_guests_wedID",
+                table: "guests",
                 column: "wedID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_wedding_userID",
-                table: "wedding",
-                column: "userID");
+                name: "IX_weddings_userId",
+                table: "weddings",
+                column: "userId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "guest");
+                name: "guests");
 
             migrationBuilder.DropTable(
-                name: "wedding");
+                name: "weddings");
 
-            migrationBuilder.RenameColumn(
-                name: "userID",
-                table: "users",
-                newName: "userid");
-
-            migrationBuilder.RenameColumn(
-                name: "createAt",
-                table: "users",
-                newName: "createTime");
+            migrationBuilder.DropTable(
+                name: "users");
         }
     }
 }

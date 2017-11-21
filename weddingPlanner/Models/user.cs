@@ -8,7 +8,7 @@ namespace weddingPlanner.Models
 //variable name must be exact match to table column
 {
     //need to use three objects, one of what was entered, a reg and login depending on usage
-    public class user
+    public class user : BaseEntity
     {
         [Key]
         //if you don't call it by the class name and ID, you willneed to designate
@@ -32,8 +32,6 @@ namespace weddingPlanner.Models
         // [MinLength(8)]
         // [DataType(DataType.Password)]
         public string password { get; set; }
-
-
 
 
         // [Required]
@@ -61,10 +59,14 @@ namespace weddingPlanner.Models
     public class LoginViewModel
     {
         [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
         public string email { get; set; }
+        
         [Required]
         [MinLength(8)]
         [DataType(DataType.Password)]
+        [Display(Name = "Password")]
         public string password { get; set; }
     }
 
@@ -72,15 +74,34 @@ namespace weddingPlanner.Models
     public class RegisterViewModel
     {
         [Required]
+        [MinLength(2)]
+        [MaxLength(15)]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "F.Name can only contain letters")]
+        [Display(Name = "F.Name")]
         public string firstName { get; set; }
+
         [Required]
+        [MinLength(2)]
+        [MaxLength(15)]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "L.Name can only contain letters")]
+        [Display(Name = "L.Name")]
         public string lastName { get; set; }
+
         [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
         public string email { get; set; }
+
         [Required]
+        [MinLength(8)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
         public string password { get; set; }
+        
         [Required]
         [Compare("password")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password Confirmation")]
         public string confirmRegPassword { get; set; }
     }
 

@@ -8,8 +8,8 @@ using weddingPlanner.Models;
 namespace weddingPlanner.Migrations
 {
     [DbContext(typeof(weddingPlannerContext))]
-    [Migration("20171117032255_FourthMigration")]
-    partial class FourthMigration
+    [Migration("20171121013827_secondMigration")]
+    partial class secondMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,7 +32,7 @@ namespace weddingPlanner.Migrations
 
                     b.HasIndex("wedID");
 
-                    b.ToTable("guest");
+                    b.ToTable("guests");
                 });
 
             modelBuilder.Entity("weddingPlanner.Models.user", b =>
@@ -65,8 +65,6 @@ namespace weddingPlanner.Migrations
 
                     b.Property<DateTime>("createAt");
 
-                    b.Property<int>("createdBy");
-
                     b.Property<string>("husband")
                         .IsRequired();
 
@@ -81,7 +79,7 @@ namespace weddingPlanner.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("wedding");
+                    b.ToTable("weddings");
                 });
 
             modelBuilder.Entity("weddingPlanner.Models.guest", b =>

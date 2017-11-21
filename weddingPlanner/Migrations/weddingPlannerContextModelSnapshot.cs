@@ -31,7 +31,7 @@ namespace weddingPlanner.Migrations
 
                     b.HasIndex("wedID");
 
-                    b.ToTable("guest");
+                    b.ToTable("guests");
                 });
 
             modelBuilder.Entity("weddingPlanner.Models.user", b =>
@@ -78,7 +78,7 @@ namespace weddingPlanner.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("wedding");
+                    b.ToTable("weddings");
                 });
 
             modelBuilder.Entity("weddingPlanner.Models.guest", b =>

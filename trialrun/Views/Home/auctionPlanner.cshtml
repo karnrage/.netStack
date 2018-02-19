@@ -1,0 +1,39 @@
+@using trialrun.Models
+@model Product
+
+
+<h1>New Auction</h1>
+
+<a href="/success"><button>Dashboard</button></a>
+<a href="/logout"><button>Logout</button></a>
+
+<div asp-validation-summary="All"></div>
+
+<form asp-controller="Home" asp-action="createProduct" method="POST">
+<span>
+<!-- if model class is already imported up top, when setting asp, do not call on it again -->
+<!-- asp-for only does validations, need name to take in the parameter -->
+    <label asp-for="@Model.name"></label>
+    <!-- if add [Display(Name = "name")] to model then its not needed in html-->
+    <!-- <small><span class="text-danger" asp-validation-for="name"></span></small> -->
+    <input  asp-for="@Model.name"/>
+
+    <label asp-for="@Model.bid"></label>
+    <!-- <small><span class="text-danger" asp-validation-for="bid"></span></small> -->
+    <input  asp-for="@Model.bid"/>
+
+    <label asp-for="@Model.description"></label>
+    <!-- <small><span class="text-danger" asp-validation-for="description"></span></small> -->
+    <input asp-for="@Model.description"/>
+
+
+    <label asp-for="@Model.endDate"></label>
+    <small class="text-danger">@TempData["DateError"]</small>
+    <!-- <small><span class="text-danger" asp-validation-for="endDate"></span></small> -->
+    <input asp-for="@Model.endDate"/>
+
+   
+</span>
+    <button type="submit">Schedule new Auction</button>
+</form>
+

@@ -1,0 +1,25 @@
+@using CNetwork.Models;
+@using System;
+@using System.Linq;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CNetwork</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/Dashboard">Dashboard</a></li>
+      <li><a href="/Network">Make A Connection</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+  <h1>@ViewBag.UserProfile.FirstName @ViewBag.UserProfile.LastName</h1>
+  <h3>Here is your profile description:</h3>
+  <div class="well">@ViewBag.UserProfile.Description</div>
+</div>

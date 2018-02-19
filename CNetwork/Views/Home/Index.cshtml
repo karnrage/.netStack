@@ -1,0 +1,44 @@
+@model CNetwork.Models.RegisterViewModel
+<h1>Register</h1>
+<form asp-controller="Home" asp-action="create" method="post">
+    <div>
+        <div class="form-group">
+            <span asp-validation-for="FirstName"></span>
+            <label asp-for="FirstName">First Name</label>
+            <input asp-for="FirstName" class="form-control"/>
+        </div>
+            
+        <div class="form-group">
+            <span asp-validation-for="LastName"></span>
+            <label asp-for="LastName">Last Name</label>
+            <input asp-for="LastName" class="form-control"/>
+        </div>
+            
+        <div class="form-group">
+            <span asp-validation-for="Email"></span>
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <span asp-validation-for="Password"></span>
+            <label asp-for="Password">Password</label>
+            <input asp-for="Password" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <span asp-validation-for="ConfirmPassword"></span>
+            <label asp-for="ConfirmPassword">Confirm Password</label>
+            <input asp-for="ConfirmPassword" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <span asp-validation-for="Description"></span>
+            <label asp-for="Description">Description</label>
+            <input asp-for="Description" class="form-control"/>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+<a href="/loginpage" class="btn btn-primary">Already A User?</a>

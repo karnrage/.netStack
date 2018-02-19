@@ -1,0 +1,54 @@
+@using CNetwork.Models;
+@using System;
+@using System.Linq;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CNetwork</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/Dashboard">Dashboard</a></li>
+      <li><a href="/Network">Make A Connection</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+  <h1>Welcome @ViewBag.UserProfile.FirstName</h1>
+  <hr>
+  <h3>Here is your profile description:</h3>
+  <div class="well">@ViewBag.UserProfile.Description</div>
+
+  <ul>
+    <h4>Here is your network:</h4>
+    @foreach(var friend in @ViewBag.UserFriends)
+    {
+     
+         <li><a href="/user/@friend.idFriend">@friend.Friend.FirstName</a></li>
+
+    }
+  </ul>
+  <hr>
+  <table>
+    <h1>Invitations</h1>
+    <h4>The following people asked to be in your network:</h4>
+    <tr>
+      <td>Name</td>
+      <td>Action</td>
+    </tr>
+    @foreach(var pendingrequest in @ViewBag.Pending)
+    {
+      <tr>
+        <td><a href="#">@pendingrequest.Requester.FirstName  @pendingrequest.Requester.LastName</a></td>
+        <td><a href="/accept/@pendingrequest.RequesterId" class="btn btn-default">Accept</a></td>
+        <td><a href="/decline/@pendingrequest.InviteId" class="btn btn-default">Decline</a></td>
+      </tr>
+    
+    }
+  </table>
+</div>

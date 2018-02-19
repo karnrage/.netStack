@@ -1,0 +1,58 @@
+@using trialrun.Models
+@model LoginRegViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Current Auctions</h1>
+
+
+
+<h1>Welcome "at"ViewBag.helloUser.firstName</h1>
+
+
+<a href="auctionPlanner"><button>new Auction</button></a>
+<a href="/logout"><button>Logout</button></a>
+
+<table>
+    <tr>
+        <th>Product</th>
+        <th>End Date</th>
+        <th>Seller</th>
+        <th>Top Bid</th>
+        <th>End Date</th>
+    </tr>
+
+<!-- In table, with loop, add each wedding -->
+    "at"foreach(var product in "at"ViewBag.allProducts)
+        //CASE SENSITIVE ABOVE
+        {
+            
+            <tr>
+                <td>
+                    <!-- //currently whole object being taken in
+                    //here you can grab, from the object, any of the columns'(here id)
+                    //when sent to the route, the route will have 
+                    //the id to select the correct -->
+                    <a href="/auctionDetail/"at"product.ProductID">"at"product.name</a>
+                </td>
+                <td>"at"product.endDate</td>
+
+                <!-- <td>"at"product.guests.Count</td> -->
+                <td>
+                    <!-- System.Console.WriteLine(ViewBag.helloUser.userID);
+                    System.Console.WriteLine(wedding.userId); -->
+                    "at"if(ViewBag.helloUser.UserID == Product.UserID)
+                        {
+                            <td><a href="delete/"at"product.productID">Delete</a></td>
+                        }
+                
+                </td>
+                <!-- <td>
+                    
+                </td> -->
+            </tr>
+            
+        }
+        
+</table>

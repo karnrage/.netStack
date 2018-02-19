@@ -1,0 +1,71 @@
+@using trialrun.Models
+@model LoginRegViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>AuctionMAX LLC</h1>
+<p>Get to spending CA$H</p>
+
+ 
+
+<!-- {
+    ViewData["Title"] = "Home Page";
+}
+<h1>Default Blank Page~</h1>
+<p>Get to adding stuff</p> -->
+
+<div asp-validation-summary="All"></div>
+
+<h1>Login</h1>
+
+<!-- asp-action ties form to the functon/route -->
+<form asp-controller="Home" asp-action="login" method="post">
+<span>
+<!-- if model class is already imported up top, when setting asp, do not call on it again -->
+<!-- asp-for only does validations, need name to take in the parameter -->
+
+
+    <label asp-for="@Model.loginVM.username"></label>
+    <input asp-for="@Model.loginVM.username"/>
+
+
+    <label asp-for="@Model.loginVM.password"></label>
+    <input asp-for="@Model.loginVM.password"/>
+
+
+</span>
+    <button type="submit">Login User</button>
+</form>
+
+<hr>
+<!-- ---------------------------------register----------------------------- -->
+<h1>Registration</h1>
+
+<!-- asp-controller = name of controller. FE HomeController is home -->
+<!-- asp-action ties form to the functon/route -->
+<form asp-controller="Home" asp-action="register" method="post">
+<span>
+<!-- if model class is already imported up top, when setting asp, do not call on it again -->
+<!-- asp-for only does validations, need name to take in the parameter -->
+    <label asp-for="@Model.registerVM.firstName"></label>
+    <input  asp-for="@Model.registerVM.firstName"/>
+
+    <label asp-for="@Model.registerVM.lastName"></label>
+    <input  asp-for="@Model.registerVM.lastName"/>
+
+    <label asp-for="@Model.registerVM.username"></label>
+    <input asp-for="@Model.registerVM.username"/>
+
+
+    <label asp-for="@Model.registerVM.password"></label>
+    <input asp-for="@Model.registerVM.password"/>
+
+   
+    <label asp-for="@Model.registerVM.confirmRegPassword"></label>
+    <input asp-for="@Model.registerVM.confirmRegPassword"/>
+</span>
+    <button type="submit">Create New User</button>
+</form>
+
+<hr>

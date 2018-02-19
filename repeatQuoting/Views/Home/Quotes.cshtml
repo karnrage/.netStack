@@ -1,0 +1,20 @@
+<h1>Here are the database of quotes</h1>
+
+<body>
+    <!-- on line 7 changed from string to var because query is a list (of dictionaries) -->
+    @{
+
+        foreach(var quote in @ViewBag.allQuotes)
+        {
+            
+            <div>
+                <br>
+                <h6>@quote["quote"]</h6>
+                <p>@quote["name"]</p>
+                <p> @quote["created_at"]</p>
+                <br>
+            </div>
+        }
+        
+    }
+</body>

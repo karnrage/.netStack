@@ -1,0 +1,36 @@
+@using CNetwork.Models
+@using System;
+@using System.Linq;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CNetwork</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/Dashboard">Dashboard</a></li>
+      <li><a href="/Network">Make A Connection</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<h1>Users you might want to connect with:</h1>
+<table>
+    <thead>
+            <tr>
+              <th>Name</th>
+              <th>Action</th>
+            </tr>
+            @foreach(var user in @ViewBag.Network)
+            {
+              <tr>
+                <th><a href="/user/@user.idUser"> @user.FirstName @user.LastName</a></th>
+                <th><a href="/invite/@user.idUser">Connect</a></th>
+              </tr>
+            }
+        </thead>
+  </table>

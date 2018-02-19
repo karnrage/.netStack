@@ -1,0 +1,7 @@
+/*Write all of your CSS here*/
+
+.sidebyside{
+    display:inline-block;
+    vertical-align:top;
+    /* background-color:white; */
+}

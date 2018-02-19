@@ -1,0 +1,86 @@
+<h6>
+    <ul class=sidebyside>
+    <li><a href="dashboard">Dashboard</a></li>
+    <li><a href="products">Products</a></li>
+    <li><a href="orders">Orders</a></li>
+    <li><a href="customers">Customers</a></li>
+    <li><a href="settings">Settings</a></li>
+    </ul>
+</h6>
+
+<h2>Add a New Order</h2>
+
+    <div class="col-md-10">
+        <select class="form-control" name="customers">
+            <option selected>Silicon Valley</option>
+            <option>Seattle</option>
+            <!-- <option>Los Angeles</option> -->
+
+        </select>
+    </div>
+
+
+
+<table>
+    <tr>
+        <th>Customer Name</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Date</th>
+    </tr>
+
+    <!-- In table, with loop, add each wedding -->
+    foreach(var wedding in @ViewBag.allWeddings)
+        //CASE SENSITIVE ABOVE
+        {
+            
+            <tr>
+                <td>
+                    <!-- //currently whole object being taken in
+                    //here you can grab, from the object, any of the columns'(here id)
+                    //when sent to the route, the route will have 
+                    //the id to select the correct -->
+                    @wedding.husband & @wedding.wife</a>
+                </td>
+                <td>@wedding.wedDate</td>
+
+                <td>@wedding.guests.Count</td>
+                <td>
+                    <!-- System.Console.WriteLine(ViewBag.helloUser.userID);
+                    System.Console.WriteLine(wedding.userId); -->
+                    @if(ViewBag.helloUser.userID == wedding.userId)
+                        {
+                            <td><a href="delete/@wedding.wedID">Delete</a></td>
+                        }
+                    else
+                        {
+                        <!-- do not comment inside of RAZOR! -->
+                        <!-- vis code may know html is over after closing brace since html is one line. maybe -->
+                            bool attending = false;
+                            foreach(var guest in wedding.guests)
+                            {
+                                if(guest.userID == ViewBag.helloUser.userID)
+                                {
+                                    attending = true;
+                                }
+                            }
+                            if(!attending)
+                            {
+                                <td><a href="/rsvp/@wedding.wedID">RSVP</a></td>
+
+                            }
+                            else
+                            {
+                                <td><a href="/decline/@wedding.wedID">Un-RSVP</a></td>
+                            }
+
+                        }
+                
+                </td>
+                <!-- <td>
+                    
+                </td> -->
+            </tr>
+            
+        }
+</table>>

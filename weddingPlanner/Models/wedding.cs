@@ -38,7 +38,6 @@ namespace weddingPlanner.Models
         // public int guests { get; set; }
 
 
-
         // [Required]
         public DateTime createAt { get; set; }
 
@@ -46,7 +45,7 @@ namespace weddingPlanner.Models
 
 //foreign key below
         public int userId { get; set; }
-//entity framework below
+//entity framework below. to set one to many relationship 
         public user user { get; set; }
         
 //need to create a list of guests, constructor so its not null
@@ -55,9 +54,6 @@ namespace weddingPlanner.Models
         {
             guests = new List<guest>();
         }
-
-
-
 
     }
 }

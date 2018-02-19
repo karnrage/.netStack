@@ -1,0 +1,40 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<p>Get to adding stuff</p>
+
+
+<h6>
+    <ul class=sidebyside>
+    <li><a href="dashboard">Dashboard</a></li>
+    <li><a href="products">Products</a></li>
+    <li><a href="orders">Orders</a></li>
+    <li><a href="customers">Customers</a></li>
+    <li><a href="settings">Settings</a></li>
+    </ul>
+</h6>
+
+<form asp-controller="Home"  method="post">
+    <span>
+
+        <input type="search" id="mySearch" placeholder="Search for something..">
+        <button onclick="myFunction()">Try it</button>
+
+        <p id="demo"></p>
+
+        <script>
+        function myFunction() {
+            var x = document.getElementById("mySearch").placeholder;
+            document.getElementById("demo").innerHTML = x;
+        }
+        </script>
+
+    </span>
+</form>
+
+
+<h2>Recent Orders</h2>
+
+<h2>New Customers</h2>
+

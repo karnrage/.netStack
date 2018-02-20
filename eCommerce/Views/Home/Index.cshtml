@@ -4,8 +4,8 @@
 
 <p>Get to adding stuff</p>
 
-
-<h6>
+<!-- Below: commented out and trying to bring in partials below -->
+<!-- <h6>
     <ul class=sidebyside>
     <li><a href="dashboard">Dashboard</a></li>
     <li><a href="products">Products</a></li>
@@ -13,13 +13,19 @@
     <li><a href="customers">Customers</a></li>
     <li><a href="settings">Settings</a></li>
     </ul>
-</h6>
+</h6> -->
+@Html.Partial("HeaderLinks")
 
 <form asp-controller="Home"  method="post">
     <span>
 
-        <input type="search" id="mySearch" placeholder="Search for something..">
-        <button onclick="myFunction()">Try it</button>
+        <div>
+            <input type="search" id="mySearch" placeholder="Search for something..">
+        </div>
+        <div>
+            <button onclick="myFunction()">Try it</button>
+        </div>
+        
 
         <p id="demo"></p>
 

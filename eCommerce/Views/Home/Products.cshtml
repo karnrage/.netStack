@@ -1,0 +1,26 @@
+@Html.Partial("HeaderLinks")
+
+<h2>Add a new Product</h2>
+
+<form asp-controller="Product"  method="post">
+    <span>
+
+        <div>
+            <input type="text" id="ProductName" placeholder="Name">
+        </div>
+        <div>
+            <input type="text" id="ProductName" placeholder="Name">
+        </div>
+        
+
+        <p id="demo"></p>
+
+        <script>
+        function myFunction() {
+            var x = document.getElementById("mySearch").placeholder;
+            document.getElementById("demo").innerHTML = x;
+        }
+        </script>
+
+    </span>
+</form>

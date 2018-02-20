@@ -14,24 +14,24 @@
                 <div class="col-md-8 col-md-offset-2">
                   <form action="/Process" method="post" class="form-horizontal">
                     <div class="form-group">
-                      <label for="Reviewer">Reviewer Name</label>
+                      <label for="reviewer_name">Reviewer Name</label>
                       <input asp-for="reviewer_name" name="reviewer_Name" type="text" class="form-control" id="exampleInputName2" placeholder="What's your Name?">
-                      <span asp-validation-for="Reviewer"></span><br>
+                      <span asp-validation-for="reviewer_name"></span><br>
                     </div>
                     <div class="form-group">
-                      <label for="Restaurant">Restaurant Name</label>
+                      <label for="restaurant_name">Restaurant Name</label>
                       <input asp-for="restaurant_name" name="restaurant_Name" type="text" class="form-control" id="exampleInputEmail2" placeholder="Which Restaurant was it?">
-                      <span asp-validation-for="Restaurant"></span><br>
+                      <span asp-validation-for="restaurant_name"></span><br>
                     </div>
                     <div class="form-group">
                       <label for="ReviewParagraph">Your Review</label>
                      <textarea asp-for="review" name="Review" class="form-control" rows="4" cols="50" placeholder="Write your Restaurant Review here"></textarea> 
-                      <span asp-validation-for="ReviewParagraph"></span><br>
+                      <span asp-validation-for="review"></span><br>
                     </div>
                     <div class="form-group">
                       <label for="VisitDate">Date</label>
                      <input type="date" asp-for="visit_date"   name="visit_date" class="form-control" placeholder="date">
-                      <span asp-validation-for="VisitDate"></span><br>
+                      <span asp-validation-for="visit_date"></span><br>
 
                      <!-- name takes priority asp-for, type takes priority over what asp-for self assign is for. if type is empty  -->
                     </div>

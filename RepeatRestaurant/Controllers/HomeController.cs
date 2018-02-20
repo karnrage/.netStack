@@ -52,13 +52,21 @@ namespace RepeatRestaurant.Controllers
                 {
                     _context.review_table.Add(NewReview);// middle word is supposed to match up with table name
                     _context.SaveChanges();
-                    return RedirectToAction("success");
+                    return RedirectToAction("Success");
                 }   
                 
             }
             
             return RedirectToAction("Index");
             // return something
+        }
+        [HttpGet]
+        [Route("success")]
+        public IActionResult success()
+        {
+            List<thisUserReview> Allreviews = _context.review_table.OrderBy(r => r.visit_date).ToList();
+            ViewBag.theReviews = Allreviews;
+            return View();
         }
 
     }

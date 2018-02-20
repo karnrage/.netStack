@@ -62,6 +62,13 @@ namespace eCommerce.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("products")]
+        [ImportModelState]
+        public IActionResult Products()
+        {
+            return View();
+        }
 
     }
 }

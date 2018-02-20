@@ -79,7 +79,7 @@ namespace RESTauranter.Controllers
         [Route("success")]
         public IActionResult success()
         {
-            List<thisUserReview> Allreviews = _context.review_table.OrderBy(r => r.visit_date).ToList();
+            List<thisUserReview> Allreviews = _context.review_table.ToList();
             ViewBag.theReviews = Allreviews;
             return View();
         }

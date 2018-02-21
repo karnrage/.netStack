@@ -10,6 +10,7 @@ using eCommerce.ActionFilters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace eCommerce.Controllers
 {
@@ -60,6 +61,10 @@ namespace eCommerce.Controllers
                     _context.SaveChanges();
                     return RedirectToAction("Index","Home");
             }
+            else
+            {
+                System.Console.WriteLine(ModelState);
+            } 
             return View("Products");
         }
 
@@ -72,6 +77,16 @@ namespace eCommerce.Controllers
             ViewBag.Products = products;
             return View();
         }
+
+
+        [HttpGet]
+        [Route("index")]
+        [ImportModelState]
+        public IActionResult index()
+        {
+            // return View();
+            return RedirectToAction("","Home");
+        }    
 
     }
 }

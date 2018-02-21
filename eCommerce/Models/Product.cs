@@ -27,7 +27,7 @@ namespace eCommerce.Models
 		[MinLength(3)]
         public string ImageLink { get; set; }
 
-		[Required]
+		// [Required] why commented out? Non-nullable value types (such as decimal, int, float, and DateTime) are inherently required and don't need the Required attribute.
         public int Quantity { get; set; }
 
         public DateTime CreatedDate { get; set; } 

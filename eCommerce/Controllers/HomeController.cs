@@ -62,6 +62,8 @@ namespace eCommerce.Controllers
             return View();
         }
 
+        
+
         // [HttpPost]
         // [Route("product/new")]
         // [ImportModelState]

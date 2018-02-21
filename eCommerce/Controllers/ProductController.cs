@@ -40,37 +40,25 @@ namespace eCommerce.Controllers
 
         // GET: /Home/
         [HttpPost]
-        [Route("Process")]
-        public IActionResult Process(thisUserReview newReview)// name of the class; name of new object
-            //no longer needed string reviewer_Name, string restaurant_Name, string Review, DateTime visit_Date, int Stars
+        [Route("create")]
+        [ImportModelState]
+        public IActionResult CreateProduct(Product newProduct)
         {
             if(ModelState.IsValid)
             {
-                thisUserReview NewReview = new thisUserReview
+                Product createProduct = new Product
                 {
-                    reviewer_name = newReview.reviewer_name,
-                    restaurant_name = newReview.restaurant_name,
-                    review = newReview.review,
-                    visit_date = newReview.visit_date,
-                    stars = newReview.stars
+                    ProductName = newProduct.ProductName,
+                    ImageLink = newProduct.ImageLink,
+                    Description = newProduct.Description,
+                    Quantity = newProduct.Quantity,
 
                 };
-                if(newReview.visit_date > DateTime.Now)
-                {
-                    TempData["dateError"] = "You can't review for a visit in the future";
-                }
-
-                else
-                {
-                    _context.review_table.Add(NewReview);// middle word is supposed to match up with table name
+                    _context.Products.Add(newProduct);// middle word is supposed to match up with table name
                     _context.SaveChanges();
-                    return RedirectToAction("Success");
-                }   
-                
+                    return RedirectToAction("Index");
             }
-            
-            return RedirectToAction("Index");
-            // return something
+            return RedirectToAction("Products");
         }
 
     }

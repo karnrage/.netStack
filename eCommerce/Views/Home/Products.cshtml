@@ -1,26 +1,60 @@
+@model eCommerce.Models.Product
+<!-- above: need to import for validations to work -->
 @Html.Partial("HeaderLinks")
 
 <h2>Add a new Product</h2>
 
-<form asp-controller="Product"  method="post">
+<form asp-controller="product/new"  method="post">
     <span>
 
         <div>
-            <input type="text" id="ProductName" placeholder="Name">
+            <label for="ProductName">Name</label>
+            <input type="text" id="ProductName" placeholder="Product Name">
+            <span asp-validation-for="ProductName"></span><br>
         </div>
         <div>
-            <input type="text" id="ProductName" placeholder="Name">
+            <label for="ImageLink">Image (URL)</label>
+            <input type="text" id="ImageLink" placeholder="Product Image Link">
+            <span asp-validation-for="ImageLink"></span><br>
         </div>
+        <div>
+            <label for="Description">Description</label>
+            <input type="text" id="Description" placeholder="Describe the product">
+            <span asp-validation-for="Description"></span><br>
+        </div>
+        <div>
+            <select type="int" asp-for="Quantity" name="Quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+            </select>
+        </div>        
         
+        <button type="submit" class="btn btn-default">Create Product</button>
 
-        <p id="demo"></p>
+
+        <!-- <p id="demo"></p>
 
         <script>
         function myFunction() {
             var x = document.getElementById("mySearch").placeholder;
             document.getElementById("demo").innerHTML = x;
         }
-        </script>
+        </script> -->
 
     </span>
 </form>
+<!-- if want to match wireframe exactly would need to create a class of divs to limit query results per line -->
+<div class="col-sm-4">
+    @foreach(var product in ViewBag.Products)
+{
+    <div class="col-sm-4">
+        <img src="@product.ImageLink">
+        <p>@product.ProductName</p>
+        <li>@product.Quantity in stock</li>
+    </div>
+}
+</div>
+

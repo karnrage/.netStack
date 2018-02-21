@@ -16,6 +16,10 @@ namespace eCommerce.Models
 		[MinLength(3)]
         public string ProductName { get; set; }
 
+        [Required]
+		[MinLength(3)]
+        public string Description { get; set; }       
+
 		
 		[MinLength(3)]
         public string ImageLink { get; set; }

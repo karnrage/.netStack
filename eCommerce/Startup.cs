@@ -18,10 +18,10 @@ namespace eCommerce
             // Add framework services.
             services.AddMvc();
             services.AddSession();
-            // mySQL connection string
-            services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
-            // Dapper Factory connection
-            services.AddScoped<DbConnector>();
+            // mySQL connection string. comment out below if using postgres
+            // services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
+            // Dapper Factory connection.comment out below if using postgres
+            // services.AddScoped<DbConnector>();
             // services.AddDbContext<>(MySqlOptions => MySqlOptions.UseNpgsql(Configuration["PostGresInfo:ConnectionString"]));
             services.AddDbContext<ECommerceContext>(options => options.UseNpgsql(Configuration["PostGresInfo:ConnectionString"]));
         }

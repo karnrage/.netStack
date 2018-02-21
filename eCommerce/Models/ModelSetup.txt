@@ -1,0 +1,14 @@
+3 options.
+
+Going with 1 product can have many orders
+
+Other two:
+1 order can have many products
+Many orders to many products
+
+
+IMPORTANT:
+
+
+if have multiple controllers, then would need multiple view folders. So c# can match up
+need own views folder to match up with different controllers

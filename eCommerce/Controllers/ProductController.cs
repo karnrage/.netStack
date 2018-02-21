@@ -42,23 +42,35 @@ namespace eCommerce.Controllers
         [HttpPost]
         [Route("create")]
         [ImportModelState]
-        public IActionResult CreateProduct(Product newProduct)
+        public IActionResult Create(Product newProduct)
         {
             if(ModelState.IsValid)
             {
+  
                 Product createProduct = new Product
                 {
                     ProductName = newProduct.ProductName,
                     ImageLink = newProduct.ImageLink,
                     Description = newProduct.Description,
                     Quantity = newProduct.Quantity,
+                    CreatedDate = DateTime.Now
 
                 };
-                    _context.Products.Add(newProduct);// middle word is supposed to match up with table name
+                    _context.Products.Add(createProduct);// middle word is supposed to match up with table name
                     _context.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index","Home");
             }
-            return RedirectToAction("Products");
+            return View("Products");
+        }
+
+        [HttpGet]
+        [Route("products")]
+        [ImportModelState]
+        public IActionResult Products()
+        {
+            List<Product> products = _context.Products.ToList();
+            ViewBag.Products = products;
+            return View();
         }
 
     }

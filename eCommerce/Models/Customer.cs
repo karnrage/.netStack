@@ -12,10 +12,16 @@ namespace eCommerce.Models
         // it that it is the key
         public int CustomerID { get; set; }
          
+  
+        // public Customer customer { get; set; }
+        // // above (lowercase) customer is an object of (uppercase) class of Customer
+        public Customer()
+        {
+            Orders = new List<Order>();
+        }
+        
         [Required]
 		[MinLength(3)]
-        public Customer customer { get; set; }
-        // above (lowercase) customer is an object of (uppercase) class of Customer
         public string Name {get; set;}
         public List<Order> Orders {get; set;}
 

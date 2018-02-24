@@ -80,7 +80,7 @@ namespace eCommerce.Controllers
 
 
         [HttpGet]
-        [Route("index")]
+        [Route("")]
         [ImportModelState]
         public IActionResult index()
         {

@@ -17,7 +17,8 @@ namespace PokeInfo.Controllers
         }
 
         // now get the pokemon info from the api call
-        // GET: /Home/
+        //NEED TO ENTER AS SUCH:   http://localhost:5000/pokemon/55
+        // GET: 
         [HttpGet]
         [Route("pokemon/{pokeid}")]
         public IActionResult GetPokemon(int pokeid)

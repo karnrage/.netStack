@@ -18,10 +18,10 @@ namespace trialrun
             // Add framework services.
             services.AddMvc();
             services.AddSession();
-            // mySQL connection string
-            services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
-            // Dapper Factory connection
-            services.AddScoped<DbConnector>();
+            // mySQL connection string. Kill below to use postgres
+            // services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
+            // Dapper Factory connection. Kill below to use postgres
+            // services.AddScoped<DbConnector>();
             // services.AddDbContext<>(MySqlOptions => MySqlOptions.UseNpgsql(Configuration["PostGresInfo:ConnectionString"]));
             services.AddDbContext<TrialrunContext>(options => options.UseNpgsql(Configuration["PostGresInfo:ConnectionString"]));
         }

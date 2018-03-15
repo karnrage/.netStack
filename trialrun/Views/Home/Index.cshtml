@@ -19,6 +19,13 @@
 
 <h1>Login</h1>
 
+
+@{
+    if(TempData["LogError"] != null)
+    {
+        <p style="color: red">@TempData["LogError"]</p>
+    }
+}
 <!-- asp-action ties form to the functon/route -->
 <form asp-controller="Home" asp-action="login" method="post">
 <span>

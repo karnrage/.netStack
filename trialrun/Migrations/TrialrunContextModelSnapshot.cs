@@ -35,7 +35,7 @@ namespace trialrun.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("Auctions");
+                    b.ToTable("Auction");
                 });
 
             modelBuilder.Entity("trialrun.Models.Product", b =>
@@ -92,7 +92,7 @@ namespace trialrun.Migrations
             modelBuilder.Entity("trialrun.Models.Auction", b =>
                 {
                     b.HasOne("trialrun.Models.Product", "product")
-                        .WithMany("auctions")
+                        .WithMany()
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade);
 

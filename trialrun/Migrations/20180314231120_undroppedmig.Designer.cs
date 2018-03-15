@@ -11,8 +11,8 @@ using trialrun.Models;
 namespace trialrun.Migrations
 {
     [DbContext(typeof(TrialrunContext))]
-    [Migration("20171122193642_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20180314231120_undroppedmig")]
+    partial class undroppedmig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,7 +36,7 @@ namespace trialrun.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("Auctions");
+                    b.ToTable("Auction");
                 });
 
             modelBuilder.Entity("trialrun.Models.Product", b =>
@@ -50,9 +50,12 @@ namespace trialrun.Migrations
 
                     b.Property<DateTime>("createdAt");
 
-                    b.Property<string>("description");
+                    b.Property<string>("description")
+                        .IsRequired();
 
                     b.Property<DateTime>("endDate");
+
+                    b.Property<string>("name");
 
                     b.Property<DateTime>("updatedAt");
 
@@ -90,7 +93,7 @@ namespace trialrun.Migrations
             modelBuilder.Entity("trialrun.Models.Auction", b =>
                 {
                     b.HasOne("trialrun.Models.Product", "product")
-                        .WithMany("auctions")
+                        .WithMany()
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade);
 

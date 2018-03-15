@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace trialrun.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class undroppedmig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -37,8 +37,9 @@ namespace trialrun.Migrations
                     UserID = table.Column<int>(type: "int4", nullable: false),
                     bid = table.Column<int>(type: "int4", nullable: false),
                     createdAt = table.Column<DateTime>(type: "timestamp", nullable: false),
-                    description = table.Column<string>(type: "text", nullable: true),
+                    description = table.Column<string>(type: "text", nullable: false),
                     endDate = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    name = table.Column<string>(type: "text", nullable: true),
                     updatedAt = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
@@ -53,7 +54,7 @@ namespace trialrun.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Auctions",
+                name: "Auction",
                 columns: table => new
                 {
                     AuctionID = table.Column<int>(type: "int4", nullable: false)
@@ -63,15 +64,15 @@ namespace trialrun.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Auctions", x => x.AuctionID);
+                    table.PrimaryKey("PK_Auction", x => x.AuctionID);
                     table.ForeignKey(
-                        name: "FK_Auctions_Products_ProductID",
+                        name: "FK_Auction_Products_ProductID",
                         column: x => x.ProductID,
                         principalTable: "Products",
                         principalColumn: "ProductID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Auctions_Users_UserID",
+                        name: "FK_Auction_Users_UserID",
                         column: x => x.UserID,
                         principalTable: "Users",
                         principalColumn: "UserID",
@@ -79,13 +80,13 @@ namespace trialrun.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Auctions_ProductID",
-                table: "Auctions",
+                name: "IX_Auction_ProductID",
+                table: "Auction",
                 column: "ProductID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Auctions_UserID",
-                table: "Auctions",
+                name: "IX_Auction_UserID",
+                table: "Auction",
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
@@ -97,7 +98,7 @@ namespace trialrun.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Auctions");
+                name: "Auction");
 
             migrationBuilder.DropTable(
                 name: "Products");

@@ -101,33 +101,41 @@ namespace trialrun.Controllers
         [Route("login")]
         public IActionResult login(LoginRegViewModel logUser)
         {
-            TempData["UserError"] = null;
+            TempData["LogError"] = null;
             User tryUser = _context.Users.SingleOrDefault(attempt => attempt.username == logUser.loginVM.username);
             {
                 if (tryUser == null)
                 {
-                    TempData["Error"] = "username not found, please register";
+                    TempData["LogError"] = "username not found, please register";
                     return View("Index", logUser);
                 }
                 else
                 {
                     if (logUser.loginVM.username != tryUser.username)
                     {
-                        TempData["Error"] = "Username or Password is incorrect";
+                        TempData["LogError"] = "Username or Password is incorrect";
                         return View("Index", logUser);
                     }
                     else
                     {
-                        PasswordHasher<User> Hasher = new PasswordHasher<User>();
-                        if (0 == Hasher.VerifyHashedPassword(tryUser, tryUser.password, logUser.loginVM.password))
+                        if (logUser.loginVM.password == null || logUser.loginVM.username == null) 
                         {
-                            TempData["Error"] = "Username or Password is incorrect";
+                            TempData["LogError"] = "Username or Password is null; please fill in the form completely";
                             return View("Index", logUser);
                         }
                         else
                         {
-                            HttpContext.Session.SetInt32("activeID", tryUser.UserID);
-                            return RedirectToAction("Success");
+                            PasswordHasher<User> Hasher = new PasswordHasher<User>();
+                            if (0 == Hasher.VerifyHashedPassword(tryUser, tryUser.password, logUser.loginVM.password))
+                            {
+                                TempData["LogError"] = "Username or Password is incorrect";
+                                return View("Index", logUser);
+                            }
+                            else
+                            {
+                                HttpContext.Session.SetInt32("activeID", tryUser.UserID);
+                                return RedirectToAction("Success");
+                            }
                         }
                     }
 
@@ -274,6 +282,7 @@ namespace trialrun.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
+            System.Console.WriteLine("logged out");          
             return RedirectToAction("Index");
 
         }

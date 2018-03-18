@@ -161,8 +161,14 @@ namespace trialrun.Controllers
             else{
                 User helloUser = _context.Users.FirstOrDefault(User => User.UserID == UserID);
                 // namespace in "Users" model is actually "User"
-                List <User> AllUsers =  _context.Users.Include(u => u.product);
-                List <Product> AllProducts =  _context.Products.Include(p => p.users);
+                List <User> AllUsers =  _context.Users.Include(u => u.products).ToList();
+                ViewBag.AllUsers = AllUsers;
+
+                List <Product> AllProducts =  _context.Products.Include(p => p.user).ToList();
+                ViewBag.AllProducts = AllProducts;
+
+                List <Product> HisProducts =  _context.Products.Include(p => p.user).Where(User => User.UserID == UserID).ToList();
+                ViewBag.AllProducts = AllProducts;
             }
 
             // List<Product> allProducts = _context.Products
@@ -174,7 +180,7 @@ namespace trialrun.Controllers
             
            
 
-            ViewBag.helloUser = helloUser;
+            // ViewBag.helloUser = helloUser;
             // ViewBag.allAuctions = allProducts;
             
             // only fulfill with post to pass data along

@@ -35,7 +35,7 @@ namespace trialrun.Models
         //first <here name has to be the same as other object> next (after <>) can be whatever I want
 
         public List<Product> products { get; set; }
-        public List<Auction> auctions { get; set; }
+        // public List<Auction> auctions { get; set; }
 
         
         //---------------constructor below to not throw error of db retreval is blank; created one-to-many relationship
@@ -44,7 +44,7 @@ namespace trialrun.Models
         //above needs to exactly class name
         {
             products = new List<Product>();
-            auctions = new List<Auction>();
+            // auctions = new List<Auction>();
         }
 
     }

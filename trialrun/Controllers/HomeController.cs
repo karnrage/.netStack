@@ -152,7 +152,18 @@ namespace trialrun.Controllers
         {
             //optional: set to variables, could directly set to viewbag
             int? UserID = HttpContext.Session.GetInt32("activeID");
-            User helloUser = _context.Users.FirstOrDefault(User => User.UserID == UserID);
+            if (UserID == null)
+            {
+                TempData["LogError"] = "No cheating! Log in first. If no log in info, then register first";
+                return View("Index");
+                
+            }
+            else{
+                User helloUser = _context.Users.FirstOrDefault(User => User.UserID == UserID);
+                // namespace in "Users" model is actually "User"
+                List <User> AllUsers =  _context.Users.Include(u => u.product);
+                List <Product> AllProducts =  _context.Products.Include(p => p.users);
+            }
 
             // List<Product> allProducts = _context.Products
             //                             // .Where(w => w.name)

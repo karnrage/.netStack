@@ -23,7 +23,7 @@ namespace trialrun.Models
         // public string email { get; set; }
         public string username { get; set; }
 
-        public int balance { get; set; }
+        public int balance = 1000; 
 
 
         public string password { get; set; }

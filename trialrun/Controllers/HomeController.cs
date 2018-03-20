@@ -134,6 +134,7 @@ namespace trialrun.Controllers
                             else
                             {
                                 HttpContext.Session.SetInt32("activeID", tryUser.UserID);
+                                HttpContext.Session.SetString("firstName", tryUser.firstName);                                
                                 return RedirectToAction("Success");
                             }
                         }
@@ -152,6 +153,9 @@ namespace trialrun.Controllers
         {
             //optional: set to variables, could directly set to viewbag
             int? UserID = HttpContext.Session.GetInt32("activeID");
+            ViewBag.UserID = UserID;
+            string UserFirstName = HttpContext.Session.GetString("firstName");
+            ViewBag.UserFirstName = UserFirstName;
             if (UserID == null)
             {
                 TempData["LogError"] = "No cheating! Log in first. If no log in info, then register first";
@@ -161,14 +165,15 @@ namespace trialrun.Controllers
             else{
                 User helloUser = _context.Users.FirstOrDefault(User => User.UserID == UserID);
                 // namespace in "Users" model is actually "User"
-                List <User> AllUsers =  _context.Users.Include(u => u.products).ToList();
-                ViewBag.AllUsers = AllUsers;
+                // List <User> AllUsers =  _context.Users.Include(u => u.products).ToList();
+                // ViewBag.AllUsers = AllUsers;
 
+                // commenting out above because result is same as below
                 List <Product> AllProducts =  _context.Products.Include(p => p.user).ToList();
                 ViewBag.AllProducts = AllProducts;
 
                 List <Product> HisProducts =  _context.Products.Include(p => p.user).Where(User => User.UserID == UserID).ToList();
-                ViewBag.AllProducts = AllProducts;
+                ViewBag.HisProducts = HisProducts;
             }
 
             // List<Product> allProducts = _context.Products
@@ -180,7 +185,6 @@ namespace trialrun.Controllers
             
            
 
-            // ViewBag.helloUser = helloUser;
             // ViewBag.allAuctions = allProducts;
             
             // only fulfill with post to pass data along
@@ -250,19 +254,17 @@ namespace trialrun.Controllers
         //*****3.{wedID} was taking in from the <a href= > on the html
         //*****2.{wedID} was given to html from viewbag
         //*****1.whole object was passed to html.{wedID} is a column/property of that object 
-        [Route("auctionDetail/{wedID}")]
-        public IActionResult auctionDetail(int wedID)
+        [Route("auctionDetail/{ProductID}")]
+        public IActionResult auctionDetail(int ProductID)
         // above is case senstive to cshtml
-        {   System.Console.WriteLine(wedID);
+        {   System.Console.WriteLine(ProductID);
 
             // wedding lastWed = _context.weddings.OrderByDescending(s => s.wedID) 
             //     .FirstOrDefault();
 
             //whole object does NOT get collected. need to use include to capture additional objects
-            Product thisProduct = _context.Products.Where(s => s.ProductID == wedID)
-                                .Include(i => i.name)
-                                
-                                .SingleOrDefault();
+            Product thisProduct = _context.Products.Where(s => s.ProductID == ProductID)
+                                                   .SingleOrDefault();
         
             // need to create query that gets all the guests, and the user, from the current wedding ID
             // wedding lastEntered = _context.weddings.Include(i => i.guests).ThenInclude(i=>i.user).SingleOrDefault(item => item.wedID == (int)lastWed.wedID);
@@ -274,7 +276,7 @@ namespace trialrun.Controllers
             // TempData["date"] = $"Date of Wedding {lastEntered.wedDate}";
             // TempData not supposed to passdata to frontend
 
-            ViewBag.Wedding = thisProduct;
+            ViewBag.Product = thisProduct;
 
             return View();
 

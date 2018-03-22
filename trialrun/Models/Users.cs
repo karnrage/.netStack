@@ -100,6 +100,9 @@ namespace trialrun.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password Confirmation")]
         public string confirmRegPassword { get; set; }
+
+        public int balance = 1000;
+        
     }
 
     //This is a WRAPPER!

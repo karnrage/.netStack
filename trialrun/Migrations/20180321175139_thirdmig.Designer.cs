@@ -11,9 +11,10 @@ using trialrun.Models;
 namespace trialrun.Migrations
 {
     [DbContext(typeof(TrialrunContext))]
-    partial class TrialrunContextModelSnapshot : ModelSnapshot
+    [Migration("20180321175139_thirdmig")]
+    partial class thirdmig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

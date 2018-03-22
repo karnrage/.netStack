@@ -263,7 +263,7 @@ namespace trialrun.Controllers
             //     .FirstOrDefault();
 
             //whole object does NOT get collected. need to use include to capture additional objects
-            Product thisProduct = _context.Products.Where(s => s.ProductID == ProductID)
+            Product thisProduct = _context.Products.Where(s => s.ProductID == ProductID).Include(u => u.user)
                                                    .SingleOrDefault();
         
             // need to create query that gets all the guests, and the user, from the current wedding ID

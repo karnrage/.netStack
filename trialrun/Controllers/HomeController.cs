@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.Globalization;
 
 
 namespace trialrun.Controllers
@@ -80,6 +81,7 @@ namespace trialrun.Controllers
                     username = modelnew.registerVM.username,
                     password = modelnew.registerVM.password,
                     createdAt = DateTime.Now,
+
                 };
 
                 _context.Users.Add(NewUser);// middle word is supposed to match up with table name
@@ -155,6 +157,7 @@ namespace trialrun.Controllers
             int? UserID = HttpContext.Session.GetInt32("activeID");
             ViewBag.UserID = UserID;
             string UserFirstName = HttpContext.Session.GetString("firstName");
+            System.Console.WriteLine(UserFirstName);
             ViewBag.UserFirstName = UserFirstName;
             if (UserID == null)
             {
@@ -169,11 +172,18 @@ namespace trialrun.Controllers
                 // ViewBag.AllUsers = AllUsers;
 
                 // commenting out above because result is same as below
-                List <Product> AllProducts =  _context.Products.Include(p => p.user).ToList();
+                List <Product> AllProducts =  _context.Products.Include(p => p.user).ThenInclude(t => t.createdAt).ToList();
                 ViewBag.AllProducts = AllProducts;
 
                 List <Product> HisProducts =  _context.Products.Include(p => p.user).Where(User => User.UserID == UserID).ToList();
-                ViewBag.HisProducts = HisProducts;
+                ViewBag.HisProducts = HisProducts;  
+
+                // DateTime now = DateTime.Now;
+                // // DateTme remaining = AllProducts.createdAt - now;
+                // DateTime createdDate = AllProducts.Product.createdAt;
+
+                // TimeSpan span = endTime.Subtract ( endTime ); 
+                // diffTicks = (date2 - now).Ticks;
             }
 
             // List<Product> allProducts = _context.Products

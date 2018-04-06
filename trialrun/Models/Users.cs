@@ -23,7 +23,12 @@ namespace trialrun.Models
         // public string email { get; set; }
         public string username { get; set; }
 
-        public int balance = 1000; 
+        public int balance { get; set; }
+
+        // public User()
+        // {
+           
+        // }
 
 
         public string password { get; set; }
@@ -43,6 +48,7 @@ namespace trialrun.Models
         public User()
         //above needs to exactly class name
         {
+            balance = 1000;
             products = new List<Product>();
             // auctions = new List<Auction>();
         }

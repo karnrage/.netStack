@@ -21,7 +21,9 @@
         <th>End Date</th>
         <th>Seller</th>
         <th>Top Bid</th>
-        <th>End Date</th>
+        <th>    </th>
+        <th>Delete</th>
+        <th>Time Remaining</th>
     </tr>
 
 <!-- In table, with loop, add each wedding -->
@@ -43,15 +45,19 @@
                 <td>
                     <!-- System.Console.WriteLine(ViewBag.helloUser.userID);
                     System.Console.WriteLine(wedding.userId); -->
+                    @product.bid
+                </td>
+           
+                <td>  
                     @if(ViewBag.UserID == product.UserID)
                         {
                             <td><a href="delete/@product.ProductID">Delete</a></td>
                         }
-                
                 </td>
-                <!-- <td>
+                <td>
                     
-                </td> -->
+                </td>
+                
             </tr>
             
         }

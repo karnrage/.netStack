@@ -179,8 +179,8 @@ namespace trialrun.Controllers
                 ViewBag.HisProducts = HisProducts;  
 
                 // DateTime now = DateTime.Now;
-                // // DateTme remaining = AllProducts.createdAt - now;
-                // DateTime createdDate = AllProducts.Product.createdAt;
+                // // DateTme remaining = AllProducts.endDate - now;
+                // DateTime createdDate = AllProducts.Product.endDate;
 
                 // TimeSpan span = endTime.Subtract ( endTime ); 
                 // diffTicks = (date2 - now).Ticks;

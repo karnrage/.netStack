@@ -37,13 +37,13 @@ namespace trialrun.Models
         public int UserID { get; set; }
         public User user { get; set; }
 
-        // public List<Auction> auctions { get; set; }
+        // public List<User> users { get; set; }
 
         // public Product()
         // //above needs to exactly class name
         // {
-        //     auctions = new List<Auction>();
-        // }
+        //     users = new List<User>();
+        }
         
     }
 }

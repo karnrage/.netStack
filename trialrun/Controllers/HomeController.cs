@@ -172,18 +172,35 @@ namespace trialrun.Controllers
                 // ViewBag.AllUsers = AllUsers;
 
                 // commenting out above because result is same as below
-                List <Product> AllProducts =  _context.Products.Include(p => p.user).ThenInclude(t => t.createdAt).ToList();
+                List <Product> AllProducts =  _context.Products.Include(p => p.user).ToList();
                 ViewBag.AllProducts = AllProducts;
 
                 List <Product> HisProducts =  _context.Products.Include(p => p.user).Where(User => User.UserID == UserID).ToList();
                 ViewBag.HisProducts = HisProducts;  
 
-                // DateTime now = DateTime.Now;
+                System.Console.WriteLine("Look at ME" + HisProducts);
+
+                List <Product> EndProducts =  _context.Products.Include(t => t.endDate).ToList();
+                ViewBag.EndProducts = EndProducts; 
+
+                System.Console.WriteLine("Look at ME" + EndProducts);
+                
+
+                DateTime now = DateTime.Now;  
+                string format = "MMM ddd d HH:mm yyyy"; 
+                Console.WriteLine(now.ToString(format)); 
+
+                // DateTime endDate = AllProducts.Product.endDate;
                 // // DateTme remaining = AllProducts.endDate - now;
-                // DateTime createdDate = AllProducts.Product.endDate;
 
                 // TimeSpan span = endTime.Subtract ( endTime ); 
                 // diffTicks = (date2 - now).Ticks;
+
+                // List <DateTime> endTime = EndProducts.Product.endDate - now;
+
+
+                // TimeSpan TimeLeft = endTime - now; 
+                
             }
 
             // List<Product> allProducts = _context.Products

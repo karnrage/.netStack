@@ -15,13 +15,13 @@
 <a href="auctionPlanner"><button>new Auction</button></a>
 <a href="/logout"><button>Logout</button></a>
 
-<table>
+<table border="1">
     <tr>
         <th>Product</th>
         <th>End Date</th>
         <th>Seller</th>
         <th>Top Bid</th>
-        <th>    </th>
+        
         <th>Delete</th>
         <th>Time Remaining</th>
     </tr>
@@ -39,27 +39,34 @@
                     //the id to select the correct -->
                     <a href="/auctionDetail/@product.ProductID">@product.name</a>
                 </td>
-                <td>@product.endDate</td>
-                <td>@product.user.firstName</td>
+
+                <td>
+                    @product.endDate
+                </td>
+
+                <td>
+                    @product.user.firstName
+                </td>
                 
                 <td>
                     <!-- System.Console.WriteLine(ViewBag.helloUser.userID);
                     System.Console.WriteLine(wedding.userId); -->
                     @product.bid
                 </td>
-           
-                <td>  
+                
+                <td>
                     @if(ViewBag.UserID == product.UserID)
                         {
-                            <td><a href="delete/@product.ProductID">Delete</a></td>
+                                 
+                        <a href="delete/@product.ProductID">Delete</a>                                         
                         }
                 </td>
                 <td>
-                    <!-- @product.endDate -->
+                    @Convert.ToInt32(((product.endDate.AddYears(0)-DateTime.Now).TotalDays))
                 </td>
-                
             </tr>
             
         }
         
 </table>
+<!-- @ViewBag.RightNow -->

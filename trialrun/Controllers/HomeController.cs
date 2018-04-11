@@ -302,6 +302,19 @@ namespace trialrun.Controllers
             //whole object does NOT get collected. need to use include to capture additional objects
             Product thisProduct = _context.Products.Where(s => s.ProductID == ProductID).Include(u => u.user)
                                                    .SingleOrDefault();
+            ViewBag.thisProduct = thisProduct;
+
+            List <Product> EndProducts =  _context.Products.OrderByDescending(t => t.endDate).ToList();
+            ViewBag.EndProducts = EndProducts; 
+
+            System.Console.WriteLine("Look at ME in auctionDetail" + EndProducts);
+            
+
+            DateTime now = DateTime.Now;  
+            string format = "MMM ddd d HH:mm yyyy"; 
+            Console.WriteLine(now.ToString(format)); 
+            ViewBag.RightNow = now.ToString(format);
+
         
             // need to create query that gets all the guests, and the user, from the current wedding ID
             // wedding lastEntered = _context.weddings.Include(i => i.guests).ThenInclude(i=>i.user).SingleOrDefault(item => item.wedID == (int)lastWed.wedID);

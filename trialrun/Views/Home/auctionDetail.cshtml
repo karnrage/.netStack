@@ -4,14 +4,18 @@
 <a href="/logout"><button>Logout</button></a>
 
 <h1>@ViewBag.Product.name<h1>
-<h3>Listed by: @ViewBag.Product.user</h3>
 
-<h3>Time remaining:</h3>
+<h3>Listed by: </h3>
+<p>@ViewBag.Product.user.firstName </p>
 
+<h3>Time remaining (days):</h3>
+@Convert.ToInt32(((@ViewBag.thisProduct.endDate.AddYears(0)-DateTime.Now).TotalDays))
 
+<h2>Description: </h2>
 <p>@ViewBag.Product.description</p>
 
 <h2>Current highest bid:</h2>
 <p>@ViewBag.Product.bid</p>
+
 <h2>Current highest bidder:</h2>
-<p>@ViewBag.Product.user.balance</p>
+<p>@ViewBag.Product.user.firstName</p>

@@ -180,7 +180,7 @@ namespace trialrun.Controllers
 
                 System.Console.WriteLine("Look at ME" + HisProducts);
 
-                List <Product> EndProducts =  _context.Products.OrderBy(t => t.endDate).ToList();
+                List <Product> EndProducts =  _context.Products.OrderByDescending(t => t.endDate).ToList();
                 ViewBag.EndProducts = EndProducts; 
 
                 System.Console.WriteLine("Look at ME" + EndProducts);
@@ -189,14 +189,17 @@ namespace trialrun.Controllers
                 DateTime now = DateTime.Now;  
                 string format = "MMM ddd d HH:mm yyyy"; 
                 Console.WriteLine(now.ToString(format)); 
+                ViewBag.RightNow = now.ToString(format);
 
                 // System.TimeSpan diff1 = EndProducts.[0].endDate.Subtract(now);
                 // DateTime expiring = now - EndProducts.[0].endDate;
 
-                foreach (Product ep in EndProducts)
-                {
-                    System.TimeSpan diff1 = ep.endDate.Subtract(now);
-                }
+                // MAYBE TOO COMPLICATED BELOW. HOW TO STORE DIFFERENCE IN VIEWBAG WITHOUT OVERWRITING?
+                // foreach (Product ep in EndProducts)
+                // {
+                //     System.TimeSpan diff1 = ep.endDate.Subtract(now);
+                //     ViewBag.diff1 = diff1;
+                // }
                 // DateTime endDate = AllProducts.Product.endDate;
                 // // DateTme remaining = AllProducts.endDate - now;
 

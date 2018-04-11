@@ -190,8 +190,13 @@ namespace trialrun.Controllers
                 string format = "MMM ddd d HH:mm yyyy"; 
                 Console.WriteLine(now.ToString(format)); 
 
-                DateTime expiring = DateTime.Now - EndProducts.[0].createdAt;
+                // System.TimeSpan diff1 = EndProducts.[0].endDate.Subtract(now);
+                // DateTime expiring = now - EndProducts.[0].endDate;
 
+                foreach (Product ep in EndProducts)
+                {
+                    System.TimeSpan diff1 = ep.endDate.Subtract(now);
+                }
                 // DateTime endDate = AllProducts.Product.endDate;
                 // // DateTme remaining = AllProducts.endDate - now;
 

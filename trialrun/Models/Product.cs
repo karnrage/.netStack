@@ -43,7 +43,7 @@ namespace trialrun.Models
         // //above needs to exactly class name
         // {
         //     users = new List<User>();
-        }
+        // }
         
     }
 }

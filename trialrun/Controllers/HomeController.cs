@@ -180,7 +180,7 @@ namespace trialrun.Controllers
 
                 System.Console.WriteLine("Look at ME" + HisProducts);
 
-                List <Product> EndProducts =  _context.Products.Include(t => t.endDate).ToList();
+                List <Product> EndProducts =  _context.Products.OrderBy(t => t.endDate).ToList();
                 ViewBag.EndProducts = EndProducts; 
 
                 System.Console.WriteLine("Look at ME" + EndProducts);
@@ -189,6 +189,8 @@ namespace trialrun.Controllers
                 DateTime now = DateTime.Now;  
                 string format = "MMM ddd d HH:mm yyyy"; 
                 Console.WriteLine(now.ToString(format)); 
+
+                DateTime expiring = DateTime.Now - EndProducts.[0].createdAt;
 
                 // DateTime endDate = AllProducts.Product.endDate;
                 // // DateTme remaining = AllProducts.endDate - now;

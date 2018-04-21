@@ -79,14 +79,14 @@ namespace eCommerce.Controllers
         }
 
 
-        [HttpGet]
-        [Route("")]
-        [ImportModelState]
-        public IActionResult index()
-        {
-            // return View();
-            return RedirectToAction("","Home");
-        }    
+        // [HttpGet]
+        // [Route("")]
+        // [ImportModelState]
+        // public IActionResult index()
+        // {
+        //     // return View();
+        //     return RedirectToAction("","Home");
+        // }    
 
     }
 }

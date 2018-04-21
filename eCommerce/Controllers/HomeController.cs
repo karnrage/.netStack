@@ -54,13 +54,13 @@ namespace eCommerce.Controllers
             return View();
         }
 
-        [HttpGet]
-        [Route("orders")]
-        [ImportModelState]
-        public IActionResult Orders()
-        {
-            return View();
-        }
+        // [HttpGet]
+        // [Route("orders")]
+        // [ImportModelState]
+        // public IActionResult Orders()
+        // {
+        //     return View();
+        // }
 
         
 

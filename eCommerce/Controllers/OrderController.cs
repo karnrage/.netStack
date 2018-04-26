@@ -53,11 +53,19 @@ namespace eCommerce.Controllers
                 Console.WriteLine("============LOOK RIGHT HERE=============" + CustomerID);
                 Customer PickedCustomer = _context.Customers.SingleOrDefault(c => c.CustomerID == CustomerID );
                 Product PickedProduct = _context.Products.SingleOrDefault(p => p.ProductID == ProductID );
+                
+                ViewBag.PickedCustomer = PickedCustomer;
+                ViewBag.PickedProduct = PickedProduct;
+                
+                
+                
                 if(PickedCustomer != null && PickedProduct != null)
                 {
                     if(Quantity > PickedProduct.Quantity)
                     {
-                        TempData["error"] = true ;
+                        TempData["Understock"] = "You can't order more than the number in inventory";
+
+                        
                     } else {
                         Order createOrder = new Order
                         {
@@ -99,6 +107,21 @@ namespace eCommerce.Controllers
 
             List<Order> orders = _context.Orders.ToList();
             ViewBag.AllOrders = orders;
+
+            foreach( var when in orders)
+                {
+                    DateTime myformatting = when.PurchaseDate;
+                    string postFormat = "yyyy";
+                    Console.WriteLine(myformatting.ToString(postFormat)); 
+                    ViewBag.RightNow = myformatting.ToString(postFormat);
+                }
+
+            // List<DateTime> orderDate = _context.Orders.PurchaseDate.ToList();
+
+            DateTime now = DateTime.Now;  
+            string format = "MMM ddd d yyyy"; 
+            Console.WriteLine(now.ToString(format)); 
+            ViewBag.RightNow = now.ToString(format);
 
             return View();
         }

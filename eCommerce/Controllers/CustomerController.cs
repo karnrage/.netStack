@@ -52,17 +52,17 @@ namespace eCommerce.Controllers
         [HttpPost]
         [Route("createCustomer")]
         [ImportModelState]
-        public IActionResult createCustomer(string newName)
+        public IActionResult createCustomer(string Name)
         {
             if(ModelState.IsValid)
             {
-                Console.WriteLine("============LOOK RIGHT HERE=============" + newName);
+                Console.WriteLine("============LOOK RIGHT HERE=============" + Name);
                 
-               if(  _context.Customers.SingleOrDefault(c => c.Name == newName ) == null)
+               if(  _context.Customers.SingleOrDefault(c => c.Name == Name ) == null)
                 {
                    Customer newCustomer = new Customer
                    {
-                               Name = newName,
+                               Name = Name,
                    };
                     _context.Customers.Add(newCustomer);// middle word is supposed to match up with table name
                     _context.SaveChanges();

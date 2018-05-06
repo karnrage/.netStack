@@ -111,18 +111,48 @@ namespace eCommerce.Controllers
             foreach( var when in orders)
                 {
                     DateTime myformatting = when.PurchaseDate;
-                    string postFormat = "yyyy";
+                    string postFormat = "MMMM d yyyy";
                     Console.WriteLine(myformatting.ToString(postFormat)); 
-                    ViewBag.RightNow = myformatting.ToString(postFormat);
+                    var postformatted = myformatting.ToString(postFormat);
+                    ViewBag.postformatted = postformatted;               
+                        
+                    long ForOrdinals = long.Parse(myformatting.ToString("dd"));
+                    Console.WriteLine(ForOrdinals);
+                    // below code blocks are not being entered. fix
+                    if( ForOrdinals <= 0 ) 
+                    
+                        ViewBag.portformatted = ForOrdinals.ToString();
+                    Console.WriteLine("after if statement"); 
+                    switch(ForOrdinals % 100)
+                    {
+                        case 11:
+                        case 12:
+                        case 13:
+
+                        ViewBag.portformatted = ForOrdinals + "th";
+                        break;
+                    }
+                    Console.WriteLine("between switch statements"); 
+                    switch(ForOrdinals % 10)
+                    {
+                        case 1:
+                            ViewBag.portformatted = ForOrdinals + "st";
+                            break;
+                        case 2:
+                            ViewBag.portformatted = ForOrdinals + "nd";
+                            break;
+                        case 3:                                    
+                            ViewBag.portformatted = ForOrdinals + "rd";
+                            System.Console.WriteLine("rd");
+                            break;
+                        default:
+                            ViewBag.portformatted = ForOrdinals + "th";
+                            Console.WriteLine("th");
+                            break;
+                        
+                    }  
+                    Console.WriteLine("Reached end of loop");                   
                 }
-
-            // List<DateTime> orderDate = _context.Orders.PurchaseDate.ToList();
-
-            DateTime now = DateTime.Now;  
-            string format = "MMM ddd d yyyy"; 
-            Console.WriteLine(now.ToString(format)); 
-            ViewBag.RightNow = now.ToString(format);
-
             return View();
         }
 

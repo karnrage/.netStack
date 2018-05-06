@@ -96,13 +96,8 @@
             @order.PurchaseDate
         </td>
         <td>
-            @{
-                var preconvert = order.PurchaseDate;
-                string format = "MMMM ddd d yyyy";
-                var convert= preconvert.ToString(format);
-            }
             <!-- Live below -->
-            @ViewBag.RightNow
+            @ViewBag.postformatted
         </td>
     </tr>
     }    

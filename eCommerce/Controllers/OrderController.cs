@@ -111,43 +111,51 @@ namespace eCommerce.Controllers
             foreach( var when in orders)
                 {
                     DateTime myformatting = when.PurchaseDate;
-                    string postFormat = "MMMM d yyyy";
+                    string postFormat = "MMMM dd yyyy";
                     Console.WriteLine(myformatting.ToString(postFormat)); 
                     var postformatted = myformatting.ToString(postFormat);
-                    ViewBag.postformatted = postformatted;               
+                    ViewBag.postformatted = postformatted; 
+
+                    //separting the date into parts and will sandwhich together when printing
+                    System.Console.WriteLine("month part");
+                    string postFormatMonth = "MMMM";
+                    var postformattedMonth = myformatting.ToString(postFormatMonth);
+
                         
                     long ForOrdinals = long.Parse(myformatting.ToString("dd"));
                     Console.WriteLine(ForOrdinals);
-                    // below code blocks are not being entered. fix
+
+                    
                     if( ForOrdinals <= 0 ) 
                     
-                        ViewBag.portformatted = ForOrdinals.ToString();
-                    Console.WriteLine("after if statement"); 
+                        ViewBag.postformatted = ForOrdinals.ToString();
+                        Console.WriteLine("after if statement");
+
                     switch(ForOrdinals % 100)
                     {
                         case 11:
                         case 12:
                         case 13:
 
-                        ViewBag.portformatted = ForOrdinals + "th";
+                        ViewBag.postformatted = ForOrdinals + "th";
                         break;
                     }
                     Console.WriteLine("between switch statements"); 
                     switch(ForOrdinals % 10)
                     {
                         case 1:
-                            ViewBag.portformatted = ForOrdinals + "st";
+                            ViewBag.postformatted = ForOrdinals + "st";
                             break;
                         case 2:
-                            ViewBag.portformatted = ForOrdinals + "nd";
+                            ViewBag.postformatted = ForOrdinals + "nd";
                             break;
                         case 3:                                    
-                            ViewBag.portformatted = ForOrdinals + "rd";
-                            System.Console.WriteLine("rd");
+                            ViewBag.postformatted = postformattedMonth +" "+ ForOrdinals + "rd";
+                            Console.WriteLine(postformattedMonth +" "+ ForOrdinals +"rd");
                             break;
                         default:
-                            ViewBag.portformatted = ForOrdinals + "th";
-                            Console.WriteLine("th");
+                            ViewBag.postformatted = ForOrdinals + "th";
+                            Console.WriteLine(postformattedMonth +" "+ ForOrdinals +"th");
                             break;
                         
                     }  

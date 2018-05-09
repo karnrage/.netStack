@@ -35,8 +35,8 @@
         <tr>
             <th>Customer Name</th>
             <th>Created Date</th>
-            <th>Actions</th>
-            
+            <th>Formatted Date</th>
+            <th>Actions</th>            
         </tr>
         @foreach(var customer in ViewBag.AllCustomers)
         {
@@ -51,7 +51,7 @@
             </td>
 
             <td>
-               
+                @ViewBag.postformatted
             </td>
         </tr>
         }    

@@ -58,10 +58,11 @@ namespace eCommerce.Controllers
             ViewBag.AllOrders = orders;
             System.Console.WriteLine("looooooooooook ==== " + orders);
 
-
-            foreach( var when in orders)
+        
+            foreach( var when in customers)
                 {
-                    DateTime myformatting = when.PurchaseDate;
+                    System.Console.WriteLine(when + ": this is the interation number");
+                    DateTime myformatting = when.CustomerDate;
                     string postFormat = "MMMM dd yyyy";
                     Console.WriteLine(myformatting.ToString(postFormat)); 
                     var postformatted = myformatting.ToString(postFormat);

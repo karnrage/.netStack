@@ -58,7 +58,8 @@ namespace eCommerce.Controllers
             ViewBag.AllOrders = orders;
             System.Console.WriteLine("looooooooooook ==== " + orders);
 
-        
+            System.Console.WriteLine("lllllllllllllOOOOOOOOOOOOOOOK  at # of customers in the list"+customers.Count);
+            // for (int when = 0; when < customers.Count; when++)
             foreach( var when in customers)
                 {
                     System.Console.WriteLine(when + ": this is the interation number");
@@ -78,10 +79,11 @@ namespace eCommerce.Controllers
                     Console.WriteLine(ForOrdinals);
 
                     
-                    if( ForOrdinals <= 0 ) 
-                    
+                    if( ForOrdinals <= 0 ){
                         ViewBag.postformatted = ForOrdinals.ToString();
                         Console.WriteLine("after if statement");
+                    } 
+                    
 
                     switch(ForOrdinals % 100)
                     {
@@ -97,6 +99,7 @@ namespace eCommerce.Controllers
                     {
                         case 1:
                             ViewBag.postformatted = ForOrdinals + "st";
+                            Console.WriteLine(postformattedMonth +" "+ ForOrdinals +"st");
                             break;
                         case 2:
                             ViewBag.postformatted = ForOrdinals + "nd";
@@ -106,7 +109,8 @@ namespace eCommerce.Controllers
                             Console.WriteLine(postformattedMonth +" "+ ForOrdinals +"rd");
                             break;
                         default:
-                            ViewBag.postformatted = ForOrdinals + "th";
+                            ViewBag.testing = ForOrdinals + "th";
+                            ViewData["th"] = ForOrdinals + "th";
                             Console.WriteLine(postformattedMonth +" "+ ForOrdinals +"th");
                             break;
                         

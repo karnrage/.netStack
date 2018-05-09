@@ -107,6 +107,8 @@ namespace eCommerce.Controllers
 
             List<Order> orders = _context.Orders.ToList();
             ViewBag.AllOrders = orders;
+            System.Console.WriteLine("looooooooooook ==== " + orders);
+
 
             foreach( var when in orders)
                 {

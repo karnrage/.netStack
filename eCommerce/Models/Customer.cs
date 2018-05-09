@@ -22,8 +22,8 @@ namespace eCommerce.Models
         public string Name {get; set;}     		
 
 
-        // [Required]
-        // public DateTime CreatedDate { get; set; }  
+        [Required]
+        public DateTime CustomerDate { get; set; }  
 
         public Customer()
         {

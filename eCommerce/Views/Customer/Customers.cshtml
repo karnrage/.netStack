@@ -24,16 +24,35 @@
                         </div>
                     </form>
     </div>
-
-                
-    
-
-              @{
-                    
+              @{                    
                     if(TempData.ContainsKey("DuplicateCustomer"))
                     {
                         <p class="text-danger font-weight-bold">@TempData["DuplicateCustomer"]</p>
                     }
                 }
         
-        
+    <table>
+        <tr>
+            <th>Customer Name</th>
+            <th>Created Date</th>
+            <th>Actions</th>
+            
+        </tr>
+        @foreach(var customer in ViewBag.AllCustomers)
+        {
+
+        <tr>
+            <td>
+                @customer.Name
+            </td>
+            
+            <td>
+                @customer.CustomerDate
+            </td>
+
+            <td>
+               
+            </td>
+        </tr>
+        }    
+    </table>        

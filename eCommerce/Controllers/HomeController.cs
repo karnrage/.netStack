@@ -16,6 +16,8 @@ using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 //my adds
 using Microsoft.AspNetCore.Session;
+using System.Globalization;
+
 
 
 namespace eCommerce.Controllers
@@ -51,6 +53,20 @@ namespace eCommerce.Controllers
         [ImportModelState]
         public IActionResult Index()
         {
+            // Need to query customers and products before querying the order. Will not establish relationships and and will create "null" instead
+
+            List <Customer> customers = _context.Customers.ToList();
+            ViewBag.AllCustomers = customers;
+
+            System.Console.WriteLine(ViewBag.AllCustomers);
+
+            List<Product> products = _context.Products.ToList();
+            ViewBag.AllProducts = products;
+
+
+            List<Order> orders = _context.Orders.OrderByDescending(p => p.PurchaseDate).Take(3).ToList();
+            ViewBag.LastThreeOrders = orders;
+            System.Console.WriteLine("looooooooooook ====" + orders);
             return View();
         }
 

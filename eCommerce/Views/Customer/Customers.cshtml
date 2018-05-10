@@ -40,7 +40,6 @@
         </tr>
         @foreach(var customer in ViewBag.AllCustomers)
         {
-
         <tr>
             <td>
                 @customer.Name
@@ -51,7 +50,7 @@
             </td>
 
             <td>
-                @ViewBag.postformatted
+                
                 @ViewBag.testing
             </td>
         </tr>
@@ -67,20 +66,20 @@
             <th>Formatted Date</th>
             <th>Actions</th>            
         </tr>
-        xforeach(var customer in ViewData["th"] as List <Customer>)
+        @foreach(var customer in ViewData["th"] as List <Customer>)
         {
 
         <tr>
             <td>
-                xcustomer.Name
+                @customer.Name
             </td>
             
             <td>
-                xcustomer.CustomerDate
+                @customer.CustomerDate
             </td>
 
             <td>
-                xViewBag.postformatted
+                @ViewBag.postformatted
             </td>
         </tr>
         }    

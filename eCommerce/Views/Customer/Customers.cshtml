@@ -44,20 +44,76 @@
             <td>
                 @customer.Name
             </td>
-            
             <td>
                 @customer.CustomerDate
             </td>
-
             <td>
-                
-                @ViewBag.testing
+                @{
+                    DateTime myformatting = customer.CustomerDate;
+                    string postFormat = "MMMM dd yyyy";
+                    var postformatted = myformatting.ToString(postFormat);
+
+                    long ForOrdinals = long.Parse(myformatting.ToString("dd"));
+
+                    string postFormatMonth = "MMMM";
+                    var postformattedMonth = myformatting.ToString(postFormatMonth);
+
+                    string postFormatYear = "yyyy";
+                    var postformattedYear = myformatting.ToString(postFormatYear);
+
+                    if (ForOrdinals <= 0 ){
+                        @ForOrdinals.ToString();                        
+                    } 
+                    
+
+                    switch(ForOrdinals % 100)
+                    {
+                        case 11:
+                        case 12:
+                        case 13:
+
+                        var FinalFormat = ForOrdinals + "th";
+                        @FinalFormat
+                        break;
+                    }
+                     
+                    switch(ForOrdinals % 10)
+                    {
+                        case 1:
+                            var FinalFormat = postformattedMonth + " " + ForOrdinals + "st" +" "+ postformattedYear;
+                            @FinalFormat;                            
+                            break;
+                        case 2:
+                            var FinalFormat2 = postformattedMonth +" "+ ForOrdinals + "nd"+" "+ postformattedYear;
+                            @FinalFormat2;                        
+                            break;
+                        case 3:                                    
+                            var FinalFormat3 = postformattedMonth +" "+ ForOrdinals + "rd" +" "+ postformattedYear;
+                            @FinalFormat3;                            
+                            break;
+                        default:
+                            var FinalFormat4 = postformattedMonth +" "+ ForOrdinals + "th" +" "+ postformattedYear;
+                            @FinalFormat4;               
+                            break;
+                        
+                    }  
+
+                }
+                          
             </td>
+            <td>                                
+                <form action="/removeCustomer/@customer.CustomerID " method=post>
+					<input type=submit value="Remove">
+				</form>
+            </td>
+        
         </tr>
         }    
     </table>        
 
-    ViewData["Title"] = "Customer Page";
+    <!-- 
+        attempt with ViewData. no point this persists after a return, however issue wasn't this
+        ViewData["Title"] = "Customer Page";
 
         <table>
         <tr>
@@ -66,21 +122,21 @@
             <th>Formatted Date</th>
             <th>Actions</th>            
         </tr>
-        @foreach(var customer in ViewData["th"] as List <Customer>)
+        xforeach(var customer in ViewData["th"] as List <Customer>)
         {
 
         <tr>
             <td>
-                @customer.Name
+                xcustomer.Name
             </td>
             
             <td>
-                @customer.CustomerDate
+                xcustomer.CustomerDate
             </td>
 
             <td>
-                @ViewBag.postformatted
+                xViewBag.postformatted
             </td>
         </tr>
         }    
-    </table>   
+    </table>    -->

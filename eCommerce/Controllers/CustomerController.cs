@@ -49,28 +49,30 @@ namespace eCommerce.Controllers
             List <Customer> customers = _context.Customers.OrderByDescending(d => d.CustomerDate).ToList();
             ViewBag.AllCustomers = customers;
 
-            System.Console.WriteLine(ViewBag.AllCustomers);
+            // System.Console.WriteLine(ViewBag.AllCustomers);
 
             List<Product> products = _context.Products.ToList();
             ViewBag.AllProducts = products;
 
             List<Order> orders = _context.Orders.ToList();
             ViewBag.AllOrders = orders;
-            System.Console.WriteLine("looooooooooook ==== " + orders);
+            // System.Console.WriteLine("looooooooooook ==== " + orders);
+
+             
 
             System.Console.WriteLine("lllllllllllllOOOOOOOOOOOOOOOK  at # of customers in the list"+customers.Count);
             // for (int when = 0; when < customers.Count; when++)
             foreach( var when in customers)
                 {
-                    System.Console.WriteLine(when + ": this is the interation number");
+                    
                     DateTime myformatting = when.CustomerDate;
                     string postFormat = "MMMM dd yyyy";
                     Console.WriteLine(myformatting.ToString(postFormat)); 
                     var postformatted = myformatting.ToString(postFormat);
-                    ViewBag.postformatted = postformatted; 
+                    // ViewBag.postformatted = postformatted; 
 
                     //separting the date into parts and will sandwhich together when printing
-                    System.Console.WriteLine("month part");
+                    // System.Console.WriteLine("month part");
                     string postFormatMonth = "MMMM";
                     var postformattedMonth = myformatting.ToString(postFormatMonth);
 
@@ -92,26 +94,37 @@ namespace eCommerce.Controllers
                         case 13:
 
                         ViewBag.postformatted = ForOrdinals + "th";
+                        System.Console.WriteLine(ViewBag.postformatted);
                         break;
                     }
                     Console.WriteLine("between switch statements"); 
                     switch(ForOrdinals % 10)
                     {
                         case 1:
-                            ViewBag.postformatted = ForOrdinals + "st";
-                            Console.WriteLine(postformattedMonth +" "+ ForOrdinals +"st");
+                            ViewBag.postformatted4 = ForOrdinals + "st";
+                            Console.WriteLine(/*postformattedMonth +*/ " "+ ForOrdinals +"st");
+                            System.Console.WriteLine(ViewBag.postformatted);
                             break;
                         case 2:
-                            ViewBag.postformatted = ForOrdinals + "nd";
+                            ViewBag.postformatted3 = ForOrdinals + "nd";
+                            System.Console.WriteLine(ViewBag.postformatted);
                             break;
                         case 3:                                    
-                            ViewBag.postformatted = postformattedMonth +" "+ ForOrdinals + "rd";
-                            Console.WriteLine(postformattedMonth +" "+ ForOrdinals +"rd");
+                            ViewBag.postformatted2 = /*postformattedMonth +*/" "+ ForOrdinals + "rd";
+                            Console.WriteLine(/*postformattedMonth +*/" "+ ForOrdinals +"rd");
+                            System.Console.WriteLine(ViewBag.postformatted);
                             break;
                         default:
+                            postformatted = ForOrdinals + "th";
+                            ViewBag.postformatted = postformatted;
                             ViewBag.testing = ForOrdinals + "th";
                             ViewData["th"] = ForOrdinals + "th";
-                            Console.WriteLine(postformattedMonth +" "+ ForOrdinals +"th");
+                            Console.WriteLine(/*postformattedMonth +*/" "+ ForOrdinals +"th");
+                            List <string> finalized = new List<string>();
+                            finalized.Add(postformattedMonth +" "+ postformatted);
+                            ViewBag.finalized = finalized;
+
+                            System.Console.WriteLine(ViewBag.postformatted);
                             break;
                         
                     }  
@@ -151,6 +164,16 @@ namespace eCommerce.Controllers
             }
             return RedirectToAction("","Home");
         }
+
+        [HttpPost]
+		[Route("removeCustomer/{id}")]
+		public IActionResult RemoveCustomer(int id)
+		{
+			Customer customer  = _context.Customers.SingleOrDefault(c => c.CustomerID == id);
+			_context.Customers.Remove(customer);
+			_context.SaveChanges();
+			return RedirectToAction("customers");
+		}
 
         
                 

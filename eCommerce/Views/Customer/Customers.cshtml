@@ -24,11 +24,16 @@
                         </div>
                     </form>
     </div>
-              @{                    
-                    if(TempData.ContainsKey("DuplicateCustomer"))
+
+            
+              @{  
+                  if(TempData != null)
                     {
+                    if(TempData.ContainsKey("DuplicateCustomer"))
+                        {                    
                         <p class="text-danger font-weight-bold">@TempData["DuplicateCustomer"]</p>
-                    }
+                        }
+                    }                  
                 }
         
     <table>
@@ -72,11 +77,12 @@
                         case 12:
                         case 13:
 
-                        var FinalFormat = ForOrdinals + "th";
+                        var FinalFormat = ForOrdinals + "th" +" ";
                         @FinalFormat
                         break;
                     }
-                     
+                    
+
                     switch(ForOrdinals % 10)
                     {
                         case 1:

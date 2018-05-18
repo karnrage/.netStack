@@ -32,6 +32,7 @@ namespace trialrun
             loggerFactory.AddConsole();
             if (env.IsDevelopment())
             {
+                loggerFactory.AddConsole();
                 app.UseDeveloperExceptionPage();
             }
             app.UseDeveloperExceptionPage();

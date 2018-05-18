@@ -49,7 +49,7 @@ namespace eCommerce.Controllers
 
         // GET: /Home/
         [HttpGet]
-        [Route("")]
+        [Route("index")]
         [ImportModelState]
         public IActionResult Index()
         {
@@ -64,19 +64,23 @@ namespace eCommerce.Controllers
             ViewBag.AllProducts = products;
 
 
-            List<Order> orders = _context.Orders.OrderByDescending(p => p.PurchaseDate).Take(3).ToList();
-            ViewBag.LastThreeOrders = orders;
-            System.Console.WriteLine("looooooooooook ====" + orders);
+            List<Order> NewOrders = _context.Orders.OrderByDescending(p => p.PurchaseDate).Take(3).ToList();
+            ViewBag.LastThreeOrders = NewOrders;
+            System.Console.WriteLine("looooooooooook ====" + NewOrders);
+
+            List<Customer> NewCustomers = _context.Customers.OrderByDescending(p => p.CustomerDate).Take(3).ToList();
+            ViewBag.LastThreeCustomers = NewCustomers;
+            System.Console.WriteLine("looooooooooook ====" + NewCustomers);
             return View();
         }
 
-        // [HttpGet]
-        // [Route("orders")]
-        // [ImportModelState]
-        // public IActionResult Orders()
-        // {
-        //     return View();
-        // }
+        [HttpGet]
+        [Route("settings")]
+        [ImportModelState]
+        public IActionResult settings()
+        {
+            return View();
+        }
 
         
 

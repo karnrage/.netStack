@@ -151,7 +151,7 @@ namespace eCommerce.Controllers
                    };
                     _context.Customers.Add(newCustomer);// middle word is supposed to match up with table name
                     _context.SaveChanges();
-                    return View("Customers");
+                    return RedirectToAction("Customers","Customer");
                    
                 } else {
                     TempData["DuplicateCustomer"] = "You can't create a customer that already exists";

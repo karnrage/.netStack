@@ -52,13 +52,26 @@
             (@Convert.ToInt32(((DateTime.Now-order.PurchaseDate.AddYears(0)).TotalDays)) days ago)
             OR @Convert.ToInt32(((DateTime.Now-order.PurchaseDate.AddYears(0)).TotalHours)) hours ago
         
-    </div>
-    
-    
+    </div>    
         
     }
-
+    <div>
+        <a style="margin-left: 400px" href="orders">show all orders...</a>
+    </div>
     
 
 <h2>New Customers</h2>
-
+        @foreach(var customer in ViewBag.LastThreeCustomers)
+    {
+    <div>
+        @customer.Name joined the store ...
+        ...
+            (@Convert.ToInt32(((DateTime.Now-customer.CustomerDate.AddYears(0)).TotalDays)) days ago)
+            OR @Convert.ToInt32(((DateTime.Now-customer.CustomerDate.AddYears(0)).TotalHours)) hours ago
+        
+    </div>
+    
+     }
+    <div>
+        <a style="margin-left: 400px" href="customers">show all customers...</a>
+    </div>
